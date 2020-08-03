@@ -36,3 +36,7 @@ Route::get('/crud/create', function () {
 Route::get('/crud/edit', function () {
     return view('adminlte.crud.edit');
 })->name('crud.edit');
+
+
+//menjalankan controller jadwal
+Route::get('/jadwal', 'JadwalController@index');
