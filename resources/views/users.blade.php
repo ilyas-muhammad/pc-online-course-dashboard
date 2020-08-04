@@ -18,34 +18,32 @@
         <table id="example1" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
-                    <th style="width: 10%">
+                    <th style="width: 20%">
                         Nama Lengkap
                     </th>
                     <th style="width: 10%">
                         Kelas
                     </th>
-                    <th style="width: 30%">
+                    <th style="width: 10%">
                         Jenis Kelamin
                     </th>
                     <th style="width: 5%" class="text-center">
                         Status
                     </th>
-                    <th style="width: 10%">
+                    <th style="width: 25%">
                         Actions
                     </th>
                 </tr>
             </thead>
             <tbody>
-            @foreach ($user as $u)
+            @foreach ($users as $u)
                 <tr>
                   <td> {{ $u-> nama_lengkap }}</td>
                   <td> {{ $u-> kelas }}</td>
                   <td> {{ $u-> jenkel }}</td>
                   <td> {{ $u-> status }}</td>
                     
-                    <td class="project-state">
-                        <span class="badge badge-success">Success</span>
-                    </td>
+                   
                     <td class="project-actions text-right">
                         <a class="btn btn-primary btn-sm" href="#">
                             <i class="fas fa-folder">
