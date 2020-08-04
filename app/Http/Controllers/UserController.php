@@ -10,10 +10,10 @@ class UserController extends Controller
     public function index()
     {
     //mengambil data dari tabel  user
-    $user = DB::table('user')->get();
+    $users = DB::table('users')->get();
 
-    //mengirim data jadwal ke view user
-    return view ('user', ['user' => $user]);
+    //mengirim data user ke view user
+    return view ('users', ['users' => $users]);
 
     }
 }

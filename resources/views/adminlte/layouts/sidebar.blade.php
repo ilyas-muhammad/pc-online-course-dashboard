@@ -20,6 +20,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('users') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p> User </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('blank-page') }}" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
                         <p> Blank Page </p>

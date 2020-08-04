@@ -46,4 +46,4 @@ Route::get('/jadwal', 'JadwalController@index');
 Route::get('/siswa', 'SiswaController@index');
 
 //menjalankan controller user
-Route::get('/user', 'UserController@index');
+Route::get('/users', 'UserController@index')->name('users');
