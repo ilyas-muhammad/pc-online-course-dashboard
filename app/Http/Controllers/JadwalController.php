@@ -10,10 +10,10 @@ class JadwalController extends Controller
     public function index()
     {
     //mengambil data dari tabel  jadwal
-    $jadwal = DB::table('siswa')->get();
+    $jadwal = DB::table('jadwal')->get();
 
     //mengirim data jadwal ke view jadwal
-    return view ('jadwl', ['jadwal' => $jadwal]);
+    return view ('jadwal', ['jadwal' => $jadwal]);
 
     }
 }

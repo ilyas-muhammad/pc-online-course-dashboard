@@ -40,3 +40,7 @@ Route::get('/crud/edit', function () {
 
 //menjalankan controller jadwal
 Route::get('/jadwal', 'JadwalController@index');
+
+
+//menjalankan controller siswa
+Route::get('/siswa', 'SiswaController@index');
