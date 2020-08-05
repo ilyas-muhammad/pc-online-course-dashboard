@@ -39,7 +39,7 @@
                     <th style="width: 5%" class="text-center">
                         Status
                     </th>
-                    <th style="width: 25%">
+                    <th style="width: 20%">
                         Actions
                     </th>
                 </tr>
@@ -47,7 +47,7 @@
             <tbody>
             @foreach ($users as $u)
                 <tr>
-                  <td> {{ $u-> nama_lengkap }}</td>
+                  <td> {{ $u-> name}}</td>
                   <td> {{ $u-> kelas }}</td>
                   <td> {{ $u-> jenkel }}</td>
                   <td> {{ $u-> status }}</td>
