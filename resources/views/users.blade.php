@@ -1,6 +1,6 @@
 @extends('adminlte.layouts.app')
 
-@section('title', 'USERS')
+@section('title', 'DATA USER')
 
 {{-- Custom CSS --}}
 @push('css')
@@ -12,8 +12,17 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">DataTable</h3>
+        <h3 class="card-title">Data User</h3>
+</div>
+
+    <div class="form-group">
     </div>
+    <p> Cari Data User : </p>
+    <form action="/users/cari" method="GET" class="form-inline">
+    <input class="from-control" type="text" name="cari" placeholder="Cari User.." value="{{old('cari')}}">
+    <input class="btn btn primary ml-3" type="submit" value="CARI">
+    </form>
+    <br/>
     <div class="card-body">
         <table id="example1" class="table table-bordered table-hover projects">
             <thead>
@@ -45,11 +54,7 @@
                     
                    
                     <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-folder">
-                            </i>
-                            View
-                        </a>
+                
                         <a class="btn btn-info btn-sm" href="#">
                             <i class="fas fa-pencil-alt">
                             </i>

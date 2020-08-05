@@ -47,3 +47,6 @@ Route::get('/siswa', 'SiswaController@index');
 
 //menjalankan controller user
 Route::get('/users', 'UserController@index')->name('users');
+
+//search data user
+Route::get('/users/cari','UserController@cari');

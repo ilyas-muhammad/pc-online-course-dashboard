@@ -16,4 +16,18 @@ class UserController extends Controller
     return view ('users', ['users' => $users]);
 
     }
+
+    public function cari(Request $request)
+    {
+        //menangkap data pencarian
+        $cari = $request->cari;
+
+        //mengambil data dari tabel users sesuai pencarian data
+        $users = DB::table('users')
+        ->where('nama','like',"%".$cari."%")
+        ->paginate();
+
+        // mengirim data user ke view user
+        return view ('users', ['users' => $users]);
+    }
 }
