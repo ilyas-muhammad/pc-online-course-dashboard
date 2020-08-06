@@ -24,7 +24,7 @@ class UserController extends Controller
 
         //mengambil data dari tabel users sesuai pencarian data
         $users = DB::table('users')
-        ->where('nama','like',"%".$cari."%")
+        ->where('name','like',"%".$cari."%")
         ->paginate();
 
         // mengirim data user ke view user

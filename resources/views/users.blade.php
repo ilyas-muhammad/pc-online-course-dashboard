@@ -15,26 +15,26 @@
         <h3 class="card-title">Data User</h3>
 </div>
 
-    <div class="form-group">
-    </div>
-    <p> Cari Data User : </p>
+<div class="form-group">
+
+</div>
+
+<p> Cari Data User : </p>
     <form action="/users/cari" method="GET" class="form-inline">
-    <input class="from-control" type="text" name="cari" placeholder="Cari User.." value="{{old('cari')}}">
-    <input class="btn btn primary ml-3" type="submit" value="CARI">
+      <input class="form-control" type="text" name="cari" placeholder="Cari User .." value="{{ old('cari') }}">
+        <input class="btn btn-primary ml-3" type="submit" value="CARI">
     </form>
     <br/>
+    
     <div class="card-body">
         <table id="example1" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
                     <th style="width: 20%">
-                        Nama Lengkap
+                        Nama User
                     </th>
                     <th style="width: 10%">
-                        Kelas
-                    </th>
-                    <th style="width: 10%">
-                        Jenis Kelamin
+                        Email
                     </th>
                     <th style="width: 5%" class="text-center">
                         Status
@@ -48,8 +48,7 @@
             @foreach ($users as $u)
                 <tr>
                   <td> {{ $u-> name}}</td>
-                  <td> {{ $u-> kelas }}</td>
-                  <td> {{ $u-> jenkel }}</td>
+                  <td> {{ $u-> email }}</td>
                   <td> {{ $u-> status }}</td>
                     
                    
