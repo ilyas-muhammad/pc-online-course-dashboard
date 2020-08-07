@@ -43,10 +43,19 @@ Route::get('/jadwal', 'JadwalController@index');
 
 
 //menjalankan controller siswa
-Route::get('/siswa', 'SiswaController@index');
+Route::get('/siswa', 'SiswaController@index')->name('siswa');
+//search data siswa
+Route::get('/siswa/cari','SiswaController@cari');
+//tambah siswa baru
+Route::get('/siswa/tambah', 'SiswaController@tambah');
+Route::post('/siswa/store', 'SiswaController@store');
+//edit siswa
+Route::get('/siswa/edit/{params}', 'SiswaController@edit');
+Route::post('/siswa/update', 'SiswaController@update');
+//hapus siswa
+Route::get('/siswa/hapus/{params}', 'SiswaController@hapus');
 
 //menjalankan controller user
 Route::get('/users', 'UserController@index')->name('users');
-
 //search data user
 Route::get('/users/cari','UserController@cari');
