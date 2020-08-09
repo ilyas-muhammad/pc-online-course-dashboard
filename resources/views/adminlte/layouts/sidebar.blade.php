@@ -25,6 +25,14 @@
                         <p> Siswa </p>
                     </a>
                 </li>
+
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('jadwal') }}" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p> Jadwal </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('users') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>

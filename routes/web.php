@@ -39,7 +39,16 @@ Route::get('/crud/edit', function () {
 
 
 //menjalankan controller jadwal
-Route::get('/jadwal', 'JadwalController@index');
+Route::get('/jadwal', 'JadwalController@index')->name('jadwal');
+//search data jadwal
+Route::get('/jadwal/cari','JadwalController@cari');
+//tambah jadwal baru
+Route::get('/jadwal/tambah', 'Jadwalontroller@tambah');
+Route::post('/jadwal/store', 'JadwalController@store');
+//edit jadwal
+Route::get('/jadwal/edit/{params}', 'JadwalController@edit');
+Route::post('/jadwal/update', 'JadwalController@update');
+Route::get('/jadwal/hapus/{params}', 'JadwalController@hapus');
 
 
 //menjalankan controller siswa

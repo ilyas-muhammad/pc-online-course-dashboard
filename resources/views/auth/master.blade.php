@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="#"><b>Laravel</b></a>
+      <a href="#"><b>Bimbel An-Najm Prestasi</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
