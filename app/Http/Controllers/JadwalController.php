@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Jadwal;
 use Illuminate\Support\Facades\DB; //untuk searching data 
 
 class JadwalController extends Controller
 {
     public function index()
     {
-    //mengambil data dari tabel  jadwal
-    $jadwal = DB::table('jadwal')->get();
+        $jadwal = Jadwal::all();
 
-    //mengirim data jadwal ke view jadwal
-    return view ('jadwal', ['jadwal' => $jadwal]);
-
+        return view('jadwal', ['jadwal' => $jadwal]);
     }
 }

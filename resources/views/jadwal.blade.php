@@ -34,6 +34,9 @@
             <thead>
                 <tr>
                     <th style="width: 20%">
+                        Nama Siswa
+                    </th>
+                    <th style="width: 20%">
                         Nama Kelas
                     </th>
                     <th style="width: 10%">
@@ -50,6 +53,9 @@
             <tbody>
             @foreach ($jadwal as $j)
                 <tr>
+                 <td> @foreach($j->siswa as $s)
+                                {{ $s->name }}<br /> 
+                                @endforeach</td>
                   <td> {{ $j-> nama_kelas}}</td>
                   <td> {{ $j-> range1 }}</td>
                   <td> {{ $j-> max_siswa }}</td>

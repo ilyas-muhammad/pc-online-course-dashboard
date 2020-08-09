@@ -37,6 +37,17 @@
         @enderror
     </div>
     <div class="input-group mb-3">
+        <select name="jenkel">
+            <option value="P">Perempuan</option>
+            <option value="L">Laki-laki</option>
+        </select>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="kelas" required
+            placeholder="Kelas">
+    </div>
+    <div class="input-group mb-3">
         <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required
             autocomplete="new-password" placeholder="Password">
         <div class="input-group-append">

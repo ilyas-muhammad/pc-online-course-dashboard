@@ -17,6 +17,17 @@ class SiswaController extends Controller
 
     }
 
+    public function cari (Request $request)
+    {
+        $cari = $request->cari;
+
+        $siswa = DB::table('siswa')
+        ->where('name','like',"%" .$cari."%")
+        ->paginate();
+
+        return view('siswa',['siswa' => $siswa]);
+    }
+
     public function tambah()
     {
         //memanggil view tambah
@@ -65,11 +76,11 @@ class SiswaController extends Controller
     {
         //update data siswa
         DB::table('siswa')->where('id', $request->id)->update([
-             'name' => 'required',
-            'email' => 'required',
-            'kelas' => 'required',
-            'jenkel' => 'required',
-            'status' => 'required'
+             'name' => $request->name,
+            'email' => $request->email,
+            'kelas' => $request->kelas,
+            'jenkel' => $request->jenkel,
+            'status' => $request->status,
         ]);
         //alihkan ke halaman siswa
         return redirect('/siswa');
