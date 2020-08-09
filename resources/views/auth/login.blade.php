@@ -4,7 +4,7 @@
 @section('title', "An-Najm Prestasi - Login")
 
 @section('auth-content')
-<p class="login-box-msg">Sign in to start your session</p>
+<p class="login-box-msg">Silahkan masukkan email dan password..</p>
 @if ($errors->any())
 <div class="alert alert-danger">
     <i class="icon fas fa-ban"></i> Invalid Email or Password
@@ -35,13 +35,13 @@
             <div class="icheck-primary">
                 <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                 <label for="remember">
-                    Remember Me
+                    Ingat Saya
                 </label>
             </div>
         </div>
         <!-- /.col -->
         <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Masuk </button>
         </div>
         <!-- /.col -->
     </div>
@@ -49,13 +49,13 @@
 
 @if (Route::has('password.request'))
 <p class="mb-1 mt-3">
-    <a href="{{ route('password.request') }}">I forgot my password</a>
+    <a href="{{ route('password.request') }}">Lupa Password</a>
 </p>
 @endif
 
 @if (Route::has('register'))
 <p class="mb-0">
-    <a href="{{ route('register') }}" class="text-center">Register a new account</a>
+    <a href="{{ route('register') }}" class="text-center">Daftar Akun Baru</a>
 </p>
 @endif
 @endsection
