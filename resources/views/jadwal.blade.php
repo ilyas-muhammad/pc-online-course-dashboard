@@ -18,12 +18,12 @@
 <div class="form-group">
 </div>
 
-<a href="/siswa/tambah"> + Tambah Jadwal Baru</a>
+<a href="/jadwal/tambah"> + Tambah Jadwal Baru</a>
 <br/>
 <br/>
 
 <p> Cari Jadwal Siswa : </p>
-    <form action="/siswa/cari" method="GET" class="form-inline">
+    <form action="/jadwal/cari" method="GET" class="form-inline">
       <input class="form-control" type="text" name="cari" placeholder="Cari Jadwal .." value="{{ old('cari') }}">
         <input class="btn btn-primary ml-3" type="submit" value="CARI">a
     </form>
@@ -57,7 +57,9 @@
                                 {{ $s->name }}<br /> 
                                 @endforeach</td>
                   <td> {{ $j-> nama_kelas}}</td>
-                  <td> {{ $j-> range1 }}</td>
+                  <td> @foreach($j->hari as $h)
+                                {{ $h->hari }}<br /> 
+                                @endforeach</td>
                   <td> {{ $j-> max_siswa }}</td>
 
                     

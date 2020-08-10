@@ -43,7 +43,7 @@ Route::get('/jadwal', 'JadwalController@index')->name('jadwal');
 //search data jadwal
 Route::get('/jadwal/cari','JadwalController@cari');
 //tambah jadwal baru
-Route::get('/jadwal/tambah', 'Jadwalontroller@tambah');
+Route::get('/jadwal/tambah', 'JadwalController@tambah');
 Route::post('/jadwal/store', 'JadwalController@store');
 //edit jadwal
 Route::get('/jadwal/edit/{params}', 'JadwalController@edit');
@@ -68,3 +68,7 @@ Route::get('/siswa/hapus/{params}', 'SiswaController@hapus');
 Route::get('/users', 'UserController@index')->name('users');
 //search data user
 Route::get('/users/cari','UserController@cari');
+
+
+//one to many hari ke jadwal
+//Route::get('/hari-jadwal', 'HariController@index');
