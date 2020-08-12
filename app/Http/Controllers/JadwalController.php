@@ -29,7 +29,7 @@ class JadwalController extends Controller
             'max' => ':attribute harus diisi max :max 1',
         ];
         // validasi user data input
-        ??$this->validate($request,[
+        $this->validate($request,[
             'name' => 'required',
             'nama_kelas' => 'required',
             'hari' => 'required',
@@ -39,11 +39,15 @@ class JadwalController extends Controller
 
         //insert data ke table siswa
         
-        $jadwal = jadwal::create([
-            'nama_kelas' => $data['nama kelas'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'level' => 2,
+        $jadwal = Jadwal::create([
+            'nama_kelas' => $data['nama_kelas'],
+            'max_siswa' => $data['max_siswa'],
+            
+        ]);
+
+        $hari = Hari::create([
+            'hari' => $data['hari'],
+        
         ]);
 
         $siswa = Siswa::create([
