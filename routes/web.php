@@ -72,3 +72,9 @@ Route::get('/users/cari','UserController@cari');
 
 //one to many hari ke jadwal
 //Route::get('/hari-jadwal', 'HariController@index');
+
+
+//upload file pembayaran
+Route::get('/upload',  'UploadController@upload')->name('upload');;
+Route::post('/upload/proses', 'UploadController@process_upload');
+

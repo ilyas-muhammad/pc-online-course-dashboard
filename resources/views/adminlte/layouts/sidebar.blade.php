@@ -33,6 +33,14 @@
                         <p> Jadwal </p>
                     </a>
                 </li>
+                
+                <li class="nav-item">
+                    <a href="{{ route('upload') }}" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p> Konfirmasi Pembayaran </p>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="{{ route('users') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
