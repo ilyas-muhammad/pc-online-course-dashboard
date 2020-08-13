@@ -36,17 +36,17 @@
   
     <div class="form-group">
         <label for="nama_kelas">*Nama Kelas</label>
-        <input class="form-control" type="text" name="email" value="{{ old ('name') }}">
+        <input class="form-control" type="text" name="nama_kelas" value="{{ old ('nama_kelas') }}">
     </div> 
 
     <div class="form-group">
         <label for="hari">*Hari</label>
-        <input class="form-control" type="text" name="kelas" value="{{ old ('name') }}">
+        <input class="form-control" type="text" name="hari" value="{{ old ('hari') }}">
     </div> 
 
     <div class="form-group">
         <label for="max_siswa">*Maksimal Siswa</label>
-        <input class="form-control" type="text" name="jenkel" value="{{ old ('name') }}">
+        <input class="form-control" type="text" name="max_siswa" value="{{ old ('max_siswa') }}">
     </div> 
 
    

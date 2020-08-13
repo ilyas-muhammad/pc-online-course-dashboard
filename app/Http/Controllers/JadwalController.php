@@ -1,19 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Jadwal;
+use App\Siswa;
+use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB; //untuk searching data 
 
 class JadwalController extends Controller
 {
     public function index()
     {
+            //mengambil data dari tabel  jadwal
         $jadwal = Jadwal::all();
 
+
+            //mengirim data jadwal siswa ke view jadwal
         return view('jadwal', ['jadwal' => $jadwal]);
     }
+
+
+    public function cari (Request $request)
+    {
+        $cari = $request->cari;
+
+        $jadwal = DB::table('jadwal')
+        ->where('name','like',"%" .$cari."%")
+        ->paginate();
+
+        return view('jadwal',['jadwal' => $jadwal]);
+    }
+
 
     public function tambah()
     {
@@ -37,26 +54,22 @@ class JadwalController extends Controller
         ], $pesan);
 
 
-        //insert data ke table siswa
+        //insert data ke table jadwal
+
+      
         
         $jadwal = Jadwal::create([
-            'nama_kelas' => $data['nama_kelas'],
-            'max_siswa' => $data['max_siswa'],
+            'nama_kelas' => $request['nama_kelas'],
+            'hari' => $request['hari'],
+            'max_siswa' => $request['max_siswa'],
             
         ]);
 
-        $hari = Hari::create([
-            'hari' => $data['hari'],
+        $siswa = Siswa::create([
+            'name' => $request['name'],
         
         ]);
-
-        $siswa = Siswa::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'kelas' => $data['kelas'],
-            'jenkel' => $data['jenkel'],
-            'status' => 'Aktif',
-        ]);
+      
         //alihkan halaman ke halaman jadwal
         return redirect ('/jadwal');
     }

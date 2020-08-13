@@ -57,21 +57,20 @@
                                 {{ $s->name }}<br /> 
                                 @endforeach</td>
                   <td> {{ $j-> nama_kelas}}</td>
-                  <td> @foreach($j->hari as $h)
-                                {{ $h->hari }}<br /> 
-                                @endforeach</td>
+    
+                  <td> {{ $j-> hari}}</td>          
                   <td> {{ $j-> max_siswa }}</td>
 
                     
                    
                     <td class="project-actions text-right">
                 
-                        <a class="btn btn-info btn-sm" href="#">
+                        <a class="btn btn-info btn-sm" href="jadwal/edit/{{$s->id}}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
-                        <a class="btn btn-danger btn-sm" href="#">
+                        <a class="btn btn-danger btn-sm" href="jadwal/hapus/{{ $s->id}}">
                             <i class="fas fa-trash">
                             </i>
                             Delete

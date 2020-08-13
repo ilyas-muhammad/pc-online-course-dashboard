@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="{{ route('home') }}" class="brand-link d-flex align-items-center justify-content-center">
         <span class="brand-text font-weight-light"><i class="fab fa-laravel fa-2x"></i>
-            {{ config('app.name', 'Laravel') }}</span>
+            {{ config('app.name', 'An-Najm') }}</span>
     </a>
 
     <!-- Sidebar -->
