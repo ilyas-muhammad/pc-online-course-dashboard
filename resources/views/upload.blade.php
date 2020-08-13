@@ -29,6 +29,7 @@
                 <b> Nama Siswa</b><br/>
                 <input type="text" name="name" class="form-control input-lg" />
             </div>
+            
 
             <div class="form-group">
                 <b> Nama Bank</b><br/>
@@ -39,6 +40,13 @@
                 <b> Nomor Rekening</b><br/>
                 <input type="text" name="no_rekening" class="form-control input-lg" />
             </div>
+
+
+            <div class="form-group">
+                <b> Jumlah Transfer</b><br/>
+                <input type="text" name="jml_transfer" class="form-control input-lg" />
+            </div>
+
 
             <div class="form-group">
                 <b> Tanggal Pembayaran</b><br/>

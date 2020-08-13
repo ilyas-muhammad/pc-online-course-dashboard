@@ -78,3 +78,16 @@ Route::get('/users/cari','UserController@cari');
 Route::get('/upload',  'UploadController@upload')->name('upload');;
 Route::post('/upload/proses', 'UploadController@process_upload');
 
+
+//menjalankan controller bank
+Route::get('/bank', 'BankController@index')->name('bank');
+//search data siswa
+Route::get('/bank/cari','BankController@cari');
+//tambah akun bank baru
+Route::get('/bank/tambah', 'BankController@tambah');
+Route::post('/bank/store', 'BankController@store');
+//edit akun bank
+Route::get('/bank/edit/{params}', 'BankController@edit');
+Route::post('/bank/update', 'BankController@update');
+//hapus akun bank
+Route::get('/Bank/hapus/{params}', 'BankController@hapus');
