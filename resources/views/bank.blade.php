@@ -1,6 +1,6 @@
 @extends('adminlte.layouts.app')
 
-@section('title', 'JADWAL SISWA')
+@section('title', 'DATA BANK ACCOUNT')
 
 {{-- Custom CSS --}}
 @push('css')
@@ -12,20 +12,20 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Jadwal Siswa</h3>
+        <h3 class="card-title">Data Bank Account</h3>
 </div>
 
 <div class="form-group">
 </div>
 
-<a href="/jadwal/tambah"> + Tambah Jadwal Baru</a>
+<a href="/bank/tambah"> + Tambah Akun Bank</a>
 <br/>
 <br/>
 
-<p> Cari Jadwal Siswa : </p>
-    <form action="/jadwal/cari" method="GET" class="form-inline">
-      <input class="form-control" type="text" name="cari" placeholder="Cari Jadwal .." value="{{ old('cari') }}">
-        <input class="btn btn-primary ml-3" type="submit" value="CARI">a
+<p> Cari Akun Bank : </p>
+    <form action="/bank/cari" method="GET" class="form-inline">
+      <input class="form-control" type="text" name="cari" placeholder="Cari Akun Bank .." value="{{ old('cari') }}">
+        <input class="btn btn-primary ml-3" type="submit" value="CARI">
     </form>
     <br/>
     
@@ -34,16 +34,13 @@
             <thead>
                 <tr>
                     <th style="width: 20%">
-                        Nama Siswa
+                        Nama Bank
                     </th>
                     <th style="width: 20%">
-                        Nama Kelas
+                        Nama Akun
                     </th>
-                    <th style="width: 10%">
-                        Hari
-                    </th>
-                    <th style="width: 10%">
-                        Maksimal Siswa
+                    <th style="width: 20%">
+                        Nomor Rekening
                     </th>
                     <th style="width: 20%">
                         Actions
@@ -51,26 +48,22 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($jadwal as $j)
+            @foreach ($bank as $b)
                 <tr>
-                 <td> @foreach($j->siswa as $s)
-                                {{ $s->name }}<br /> 
-                                @endforeach</td>
-                  <td> {{ $j-> nama_kelas}}</td>
-    
-                  <td> {{ $j-> hari}}</td>          
-                  <td> {{ $j-> max_siswa }}</td>
-
+                  <td> {{ $b-> nama_bank}}</td>
+                  <td> {{ $b-> nama_akun}}</td>
+                  <td> {{ $b-> no_rekening}}</td>
+                
                     
                    
                     <td class="project-actions text-right">
                 
-                        <a class="btn btn-info btn-sm" href="jadwal/edit/{{$j->id}}">
+                        <a class="btn btn-info btn-sm" href="bank/edit/{{$b->id}}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
-                        <a class="btn btn-danger btn-sm" href="jadwal/hapus/{{ $j->id}}">
+                        <a class="btn btn-danger btn-sm" href="bank/hapus/{{ $b->id}}">
                             <i class="fas fa-trash">
                             </i>
                             Delete

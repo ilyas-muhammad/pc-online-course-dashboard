@@ -1,6 +1,7 @@
+
 @extends('adminlte.layouts.app')
 
-@section('title', 'Tambah Data Jadwal')
+@section('title', 'Tambah Data Akun Bank')
 
 {{-- Custom CSS --}}
 @push('css')
@@ -11,7 +12,7 @@
 
 @section('content')
 
-<a href="/jadwal"> Kembali</a>
+<a href="/bank"> Kembali</a>
 <br/>
 <br/>
 
@@ -27,25 +28,24 @@
 </div>
 @endif 
 
-<form action="/jadwal/store" method="POST">
+<form action="/bank/store" method="POST">
     {{ csrf_field()}}
-
     <div class="form-group">
-        <label for="nama_kelas">*Nama Kelas</label>
-        <input class="form-control" type="text" name="nama_kelas" value="{{ old ('nama_kelas') }}">
+        <label for="nama_bank">*Nama Bank</label>
+        <input class="form-control" type="text" name="nama_bank" value="{{ old ('nama_bank') }}">
+    </div> 
+  
+    <div class="form-group">
+        <label for="nama_akun">*Nama Akun Bank</label>
+        <input class="form-control" type="text" name="nama_akun" value="{{ old ('nama_akun') }}">
     </div> 
 
     <div class="form-group">
-        <label for="hari">*Hari</label>
-        <input class="form-control" type="text" name="hari" value="{{ old ('hari') }}">
+        <label for="no_rekening">*Nomor Rekening</label>
+        <input class="form-control" type="text" name="no_rekening" value="{{ old ('no_rekening') }}">
     </div> 
 
-    <div class="form-group">
-        <label for="max_siswa">*Maksimal Siswa</label>
-        <input class="form-control" type="text" name="max_siswa" value="{{ old ('max_siswa') }}">
-    </div> 
-
-   
+    
     
  <div class="form-group">
      <input class="btn btn-primary" type="submit" value ="Simpan Data">

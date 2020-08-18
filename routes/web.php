@@ -75,7 +75,7 @@ Route::get('/users/cari','UserController@cari');
 
 
 //upload file pembayaran
-Route::get('/upload',  'UploadController@upload')->name('upload');;
+Route::get('/upload',  'UploadController@upload')->name('upload');
 Route::post('/upload/proses', 'UploadController@process_upload');
 
 
@@ -90,4 +90,8 @@ Route::post('/bank/store', 'BankController@store');
 Route::get('/bank/edit/{params}', 'BankController@edit');
 Route::post('/bank/update', 'BankController@update');
 //hapus akun bank
-Route::get('/Bank/hapus/{params}', 'BankController@hapus');
+Route::get('/bank/hapus/{params}', 'BankController@hapus');
+
+//aproved pembayaran
+Route::get('/upload/approved/{params}',  'UploadController@approved');
+Route::get('/upload/decline/{params}',  'UploadController@decline');

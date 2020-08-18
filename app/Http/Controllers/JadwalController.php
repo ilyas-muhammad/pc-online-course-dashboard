@@ -47,7 +47,7 @@ class JadwalController extends Controller
         ];
         // validasi user data input
         $this->validate($request,[
-            'name' => 'required',
+           
             'nama_kelas' => 'required',
             'hari' => 'required',
             'max_siswa' => 'required',
@@ -65,10 +65,7 @@ class JadwalController extends Controller
             
         ]);
 
-        $siswa = Siswa::create([
-            'name' => $request['name'],
-        
-        ]);
+       
       
         //alihkan halaman ke halaman jadwal
         return redirect ('/jadwal');
@@ -86,7 +83,7 @@ class JadwalController extends Controller
     {
         //update data jadwal
         DB::table('jadwal')->where('id', $request->id)->update([
-             'name' => $request->name,
+          
             'nama_kelas' => $request->nama_kelas,
             'hari' => $request->hari,
             'max_siswa' => $request->max_siswa,

@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="{{ route('home') }}" class="brand-link d-flex align-items-center justify-content-center">
         <span class="brand-text font-weight-light"><i class="fab fa-laravel fa-2x"></i>
-            {{ config('app.name', 'An-Najm') }}</span>
+            {{ config('app.name', 'Laravel') }}</span>
     </a>
 
     <!-- Sidebar -->
@@ -20,6 +20,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('jadwal') }}" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p> Jadwal </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('siswa') }}" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
                         <p> Siswa </p>
@@ -28,11 +34,12 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('jadwal') }}" class="nav-link">
+                    <a href="{{ route('bank') }}" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
-                        <p> Jadwal </p>
+                        <p> Akun Bank </p>
                     </a>
                 </li>
+
                 
                 <li class="nav-item">
                     <a href="{{ route('upload') }}" class="nav-link">

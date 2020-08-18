@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Galery;
+use Illuminate\Support\Facades\DB; 
 
 class UploadController extends Controller
 {
@@ -22,22 +23,51 @@ class UploadController extends Controller
             'file' => 'required|file|image|mimes:jpeg,png|max:2048',
             'keterangan' => 'required',
         ]);
-        $file = $request ->file('file');
-        $name = time ()."_".$file->getClientOriginalName();
+        $file = $request->file('file');
+        $name = time()."_".$file->getClientOriginalName();
 
         $path ='images';
         $file->move($path,$name);
 
         Galery::create([
-            'name' => $name,
-            'nama_bank' => $nama_bank,
-            'no_rekening' => $no_rekening,
-            'jml_transfer' => $jml_transfer,
-            'tgl_pembayaran' => $tgl_pembayaran,
-            'file' => $file,
+            'name' => $request->name,
+            'nama_bank' => $request->nama_bank,
+            'no_rekening' => $request->no_rekening,
+            'jml_transfer' => $request->jml_transfer,
+            'tgl_pembayaran' => $request->tgl_pembayaran,
+            'file' => $name,
             'keterangan' => $request->keterangan,
         ]);
         return redirect()->back();
+    }
+
+    public function approved($request)
+    {
+        //update data jadwal
+        DB::table('galeries')->where('id', $request)->update([
+          
+            'status' => 'approved'
+            
+          
+        ]);
+        //alihkan ke halaman jadwal
+        return redirect()->back();
+
+    }
+    
+    
+    public function decline($request)
+    {
+        //update data jadwal
+        DB::table('galeries')->where('id', $request)->update([
+          
+            'status' => 'decline'
+            
+          
+        ]);
+        //alihkan ke halaman jadwal
+        return redirect()->back();
+
     }
     
 }
