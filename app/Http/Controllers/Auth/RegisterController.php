@@ -73,6 +73,7 @@ class RegisterController extends Controller
         ]);
 
         $siswa = Siswa::create([
+            'id_users' => $user['id'],
             'name' => $data['name'],
             'email' => $data['email'],
             'kelas' => $data['kelas'],

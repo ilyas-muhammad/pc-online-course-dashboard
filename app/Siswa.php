@@ -20,6 +20,11 @@ class Siswa extends Model
 
     public function jadwal()
     {
-        return $this->belongsTo('AppSiswa');
+        return $this->belongsTo('App\Siswa');
+    }
+
+    public function absen()
+    {
+        return $this->belongsTo('App\Absen');
     }
 }

@@ -26,6 +26,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('absen') }}" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p> Absensi  </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('siswa') }}" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
                         <p> Siswa </p>

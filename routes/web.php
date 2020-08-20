@@ -95,3 +95,18 @@ Route::get('/bank/hapus/{params}', 'BankController@hapus');
 //aproved pembayaran
 Route::get('/upload/approved/{params}',  'UploadController@approved');
 Route::get('/upload/decline/{params}',  'UploadController@decline');
+
+Route::get('/register1', 'RegisterController@createStep1')->name('signup');
+Route::post('/register1', 'RegisterController@PostcreateStep1');
+Route::get('/register2', 'RegisterController@createStep2');
+Route::post('/register2', 'RegisterController@PostcreateStep2');
+Route::get('/register3', 'RegisterController@createStep3');
+Route::post('/register3', 'RegisterController@PostcreateStep3');
+Route::post('/remove-image', 'RegisterController@removeImage');
+Route::post('/store', 'RegisterController@store');
+Route::get('/data', 'RegisterController@index');
+
+
+//menjalankan controller absensi
+Route::get('/absen', 'AbsenController@index')->name('absen');
+Route::get('/present/{ids}/{idj}', 'AbsenController@absen');

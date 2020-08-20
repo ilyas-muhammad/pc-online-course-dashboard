@@ -18,4 +18,8 @@ class Jadwal extends Model
         return $this->hasMany('App\Siswa',  'id_jadwal', 'id');
     }
 
+    public function absen()
+    {
+        return $this->belongsTo('App\Absen');
+    }
 }
