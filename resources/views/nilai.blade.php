@@ -1,6 +1,6 @@
 @extends('adminlte.layouts.app')
 
-@section('title', 'DATA SISWA')
+@section('title', 'NILAI SISWA')
 
 {{-- Custom CSS --}}
 @push('css')
@@ -12,29 +12,27 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Data Siswa</h3>
+        <h3 class="card-title">Data Nilai Siswa</h3>
 </div>
-
-
-
-<a href="/siswa/tambah"> + Tambah Siswa Baru</a>
-<br/>
-<br/>
 
 <div class="form-group">
-
-
 </div>
 
-
-<p> Cari Data Siswa : </p>
-    <form action="/siswa/cari" method="GET" class="form-inline">
-      <input class="form-control" type="text" name="cari" placeholder="Cari Siswa .." value="{{ old('cari') }}">
+<a href="/nilai/tambah"> + Tambah Nilai </a>
+<br/>
+<br/>
+<p> Cari Nilai : </p>
+    <form action="/nilai/cari" method="GET" class="form-inline">
+      <input class="form-control" type="text" name="cari" placeholder="Cari Akun NIlai .." value="{{ old('cari') }}">
         <input class="btn btn-primary ml-3" type="submit" value="CARI">
     </form>
     <br/>
-    
     <div class="card-body">
+
+    <a href="/nilai/print-pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
+    <a href="/nilai/print-excel" class="btn btn-succes my-3" target="_blank">EXPORT EXCEL</a>
+    
+    <br/><br/>
         <table id="example1" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
@@ -42,16 +40,13 @@
                         Nama Siswa
                     </th>
                     <th style="width: 10%">
-                        Email
-                    </th>
-                    <th style="width: 10%">
                         Kelas
                     </th>
-                    <th style="width: 10%">
-                        Jenis Kelamin
+                    <th style="width: 5%">
+                     Jenis Kelamin
                     </th>
-                    <th style="width: 5%" class="text-center">
-                        Status
+                    <th style="width: 10%">
+                    Skor
                     </th>
                     <th style="width: 20%">
                         Actions
@@ -59,23 +54,22 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($siswa as $s)
+            @foreach ($nilai as $n)
                 <tr>
-                  <td> {{ $s-> name}}</td>
-                  <td> {{ $s-> email }}</td>
-                  <td> {{ $s-> kelas }}</td>
-                  <td> {{ $s-> jenkel }}</td>
-                  <td> {{ $s-> status }}</td>
+                  <td> {{ $n-> name}}</td>
+                  <td> {{ $n-> kelas}}</td>
+                  <td> {{ $n-> jenkel}}</td>
+                  <td> {{ $n-> skor}}</td>
                     
                    
                     <td class="project-actions text-right">
                 
-                        <a class="btn btn-info btn-sm" href="siswa/edit/{{$s->id}}">
+                        <a class="btn btn-info btn-sm" href="nilai/edit/{{$n->id}}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
-                        <a class="btn btn-danger btn-sm" href="siswa/hapus/{{ $s->id}}">
+                        <a class="btn btn-danger btn-sm" href="nilai/hapus/{{ $n->id}}">
                             <i class="fas fa-trash">
                             </i>
                             Delete
@@ -89,7 +83,6 @@
     </div>
 </div>
 @endsection
-
 @push('js')
 <!-- DataTables -->
 <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>

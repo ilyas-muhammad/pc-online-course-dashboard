@@ -110,3 +110,23 @@ Route::get('/data', 'RegisterController@index');
 //menjalankan controller absensi
 Route::get('/absen', 'AbsenController@index')->name('absen');
 Route::get('/present/{ids}/{idj}', 'AbsenController@absen');
+
+//menjalankan controller evaluasi
+Route::get('/evaluasi', 'EvaluasiController@index')->name('evaluasi');
+//search data evaluasi
+Route::get('/evaluasi/cari','EvaluasiController@cari');
+
+//menjalankan controller 
+Route::get('/nilai', 'NilaiController@index')->name('nilai');
+//search data 
+Route::get('/nilai/cari','NilaiController@cari');
+//tambah 
+Route::get('/nilai/tambah', 'NilaiController@tambah');
+Route::post('/nilai/store', 'NilaiController@store');
+//edit
+Route::get('/nilai/edit/{params}', 'NilaiController@edit');
+Route::post('/nilai/update', 'NilaiController@update');
+//hapus 
+Route::get('/nilai/hapus/{params}', 'NilaiController@hapus');
+//cetak nilai siswa
+Route::get('/nilai/print-pdf', 'NilaiController@printPDF');

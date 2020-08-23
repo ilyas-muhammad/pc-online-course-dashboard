@@ -45,7 +45,19 @@
                         <p> Akun Bank </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('evaluasi') }}" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p> Evaluasi Siswa </p>
+                    </a>
+                </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('nilai') }}" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p> Data Nilai Siswa </p>
+                    </a>
+                </li>
                 
                 <li class="nav-item">
                     <a href="{{ route('upload') }}" class="nav-link">
