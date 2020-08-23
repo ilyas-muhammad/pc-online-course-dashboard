@@ -118,6 +118,15 @@ Route::get('/present/{ids}/{idj}', 'AbsenController@absen');
 Route::get('/evaluasi', 'EvaluasiController@index')->name('evaluasi');
 //search data evaluasi
 Route::get('/evaluasi/cari','EvaluasiController@cari');
+//tambah 
+Route::get('/evaluasi/tambah', 'EvaluasiController@tambah');
+Route::post('/evaluasi/store', 'EvaluasiController@store');
+//edit
+Route::get('/evaluasi/edit/{params}', 'EvaluasiController@edit');
+Route::post('/evaluasi/update', 'EvaluasiController@update');
+//hapus 
+Route::get('/evaluasi/hapus/{params}', 'EvaluasiController@hapus');
+
 
 //menjalankan controller 
 Route::get('/nilai', 'NilaiController@index')->name('nilai');

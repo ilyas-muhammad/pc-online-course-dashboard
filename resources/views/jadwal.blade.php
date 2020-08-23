@@ -45,9 +45,13 @@
                     <th style="width: 10%">
                         Maksimal Siswa
                     </th>
+
+                    
+                    @if ($user->level == 1)
                     <th style="width: 20%">
                         Actions
                     </th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -62,7 +66,7 @@
                   <td> {{ $j-> max_siswa }}</td>
 
                     
-                   
+                  @if ($user->level == 1)
                     <td class="project-actions text-right">
                 
                         <a class="btn btn-info btn-sm" href="jadwal/edit/{{$j->id}}">
@@ -76,6 +80,7 @@
                             Delete
                         </a>
                     </td>
+                    @endif
                 </tr>
                 </tr>
             </tbody>

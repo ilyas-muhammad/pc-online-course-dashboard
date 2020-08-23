@@ -4,19 +4,27 @@ namespace App\Http\Controllers;
 use App\Jadwal;
 use App\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-use Illuminate\Support\Facades\DB; //untuk searching data 
+use Illuminate\Support\Facades\DB; 
 
 class JadwalController extends Controller
 {
-    public function index()
-    {
-            //mengambil data dari tabel  jadwal
-        $jadwal = Jadwal::all();
+    public function __construct() {
+        $this->middleware('auth');
+    }
 
+    public function index(){
+        $userId = Auth::id();
+        $user = Auth::user();
 
-            //mengirim data jadwal siswa ke view jadwal
-        return view('jadwal', ['jadwal' => $jadwal]);
+        $jadwal = Jadwal::where('id_user', $userId)->get();
+
+        if ($user->level == 1) { //admin
+            $jadwal = Jadwal::get(); // get semua data
+        }
+
+        return view ('jadwal', ['jadwal' => $jadwal, 'user' => $user]);
     }
 
 

@@ -43,4 +43,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Siswa');
     }
 
+
+    public function galery()
+    {
+        return $this->hasMany('App\Galery');
+    }
 }

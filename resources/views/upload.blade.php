@@ -30,7 +30,6 @@
                 <input type="text" name="name" class="form-control input-lg" />
             </div>
             
-
             <div class="form-group">
                 <b> Nama Bank</b><br/>
                 <input type="text" name="nama_bank" class="form-control input-lg" />
@@ -73,25 +72,32 @@
             <thead>
                 <tr>
                     <th>Nama Siswa</th>
+                    <th>ID User</th>
                     <th>Nama Bank</th>
                     <th>No Rekening</th>
                     <th>Tanggal Pembayaran</th>
                     <th width="10%">File</th>
                     <th>Keterangan</th>
                     <th>Status</th>
+
+                    @if ($user->level == 1)
                     <th>Action</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
                 @foreach($gambar as $g) 
                 <tr>
-                <td>{{$g -> name}} </td>
+                <td>{{$g -> name }} </td>
+                <td>{{$g -> id_user }} </td>
                 <td>{{$g -> nama_bank}} </td>
                 <td>{{$g -> no_rekening}} </td>
                 <td>{{$g -> tgl_pembayaran }} </td>
                 <td><img width="150px" src="{{ url('/images/'.$g->file) }}"></td>
                 <td>{{$g -> keterangan }} </td>
                 <td>{{$g -> status }} </td>
+                
+                @if ($user->level == 1)
                 <td class="project-actions text-right">
                 
                 <a class="btn btn-info btn-sm" href="upload/approved/{{$g->id}}">
@@ -105,6 +111,8 @@
                     Decline
                 </a>
             </td>
+            @endif
+            
                 </tr>
                 @endforeach
             </tbody>

@@ -31,7 +31,7 @@ class AbsenController extends Controller
 
         foreach ($jadwal as $j) { 
             // get data absen where id siswa dan id jadwal => object {}
-            $absen = Absen::where(['id_siswa' => $siswa->id, 'id_jadwal' => $j->id])->first();
+            $absen = Absen::where(['id_siswa' => $siswa->id, 'id_jadwal' => $j->id])->orderBy('waktu_absen', 'desc')->first();
 
             if ($absen) {
                 // bikin object kosong baru => {}

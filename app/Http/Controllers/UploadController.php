@@ -4,13 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Galery;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UploadController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function upload(){
-        $gambar = Galery::get();
-        return view ('upload', ['gambar' => $gambar]);
+        $userId = Auth::id();
+        $user = Auth::user();
+
+        $gambar = Galery::where('id_user', $userId)->get();
+
+        if ($user->level == 1) { //admin
+            $gambar = Galery::get(); // get semua data
+        }
+
+        return view ('upload', ['gambar' => $gambar, 'user' => $user]);
     }
       
     public function process_upload(Request $request){
@@ -29,8 +42,11 @@ class UploadController extends Controller
         $path ='images';
         $file->move($path,$name);
 
+        $userId = Auth::id();
+
         Galery::create([
             'name' => $request->name,
+            'id_user' => $userId,
             'nama_bank' => $request->nama_bank,
             'no_rekening' => $request->no_rekening,
             'jml_transfer' => $request->jml_transfer,

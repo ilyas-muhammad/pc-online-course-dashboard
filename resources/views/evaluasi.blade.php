@@ -29,21 +29,41 @@
         <table id="example1" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
+                <th style="width: 10%">
+                        Nama Siswa
+                    </th>
                     <th style="width: 10%">
                         Nama Kelas
                     </th>
                     <th style="width: 10%">
                         Link Evaluasi
                     </th>
+                    <th style="width: 10%">
+                        Skor
+                    </th>
+                    <th style="width: 20%">
+                        Actions
+                    </th>
                 </tr>
             </thead>
             <tbody>
             @foreach ($evaluasi as $e)
             <tr>
+                  <td> {{ $e-> name}}</td>
                   <td> {{ $e-> kelas}}</td>
                   <td> {{ $e-> nama_evaluasi}}</td>
+                  <td> {{ $e-> skor}}</td>
                   <td class="project-actions text-right">
-
+                  <a class="btn btn-info btn-sm" href="evaluasi/edit/{{$e->id}}">
+                            <i class="fas fa-pencil-alt">
+                            </i>
+                            Edit
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="evaluasi/hapus/{{ $e->id}}">
+                            <i class="fas fa-trash">
+                            </i>
+                            Delete
+                        </a>
                   </td>
                 </tr>
                 </tr>
