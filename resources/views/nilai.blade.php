@@ -30,9 +30,10 @@
     <div class="card-body">
 
     <a href="/nilai/print-pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
-    <a href="/nilai/print-excel" class="btn btn-succes my-3" target="_blank">EXPORT EXCEL</a>
-    
+    <a href="/nilai/print-excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+
     <br/><br/>
+    
         <table id="example1" class="table table-bordered table-hover projects">
             <thead>
                 <tr>

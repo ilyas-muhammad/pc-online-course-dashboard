@@ -63,6 +63,9 @@ Route::get('/siswa/edit/{params}', 'SiswaController@edit');
 Route::post('/siswa/update', 'SiswaController@update');
 //hapus siswa
 Route::get('/siswa/hapus/{params}', 'SiswaController@hapus');
+//cetak data siswa
+Route::get('/siswa/print-pdf', 'SiswaController@printPDF');
+Route::get('/siswa/print-excel', 'SiswaController@printExcel');
 
 //menjalankan controller user
 Route::get('/users', 'UserController@index')->name('users');

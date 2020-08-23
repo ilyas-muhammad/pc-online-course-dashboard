@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB; //untuk searching data 
+use Illuminate\Support\Facades\DB; 
+use PDF;
+use App\Exports\SiswaExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SiswaController extends Controller
 {
@@ -94,5 +97,18 @@ class SiswaController extends Controller
 
         //alihkan halaman ke halaman siswa
         return redirect('/siswa');
+    }
+    
+    public function printPDF()
+    {
+        $siswa = DB::table('siswa')->get();
+        $pdf = PDF::loadview('siswa-pdf', ['siswa' => $siswa]);
+        return $pdf->download('data-siswa-pdf');
+
+    }
+
+    public function printExcel()
+    {
+        return Excel::download(new SiswaExport, 'data-siswa.xls');
     }
 }

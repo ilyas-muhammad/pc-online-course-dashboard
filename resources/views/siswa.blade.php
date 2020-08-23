@@ -17,14 +17,13 @@
 
 
 
+<div class="form-group">
+</div>
 <a href="/siswa/tambah"> + Tambah Siswa Baru</a>
 <br/>
 <br/>
 
-<div class="form-group">
 
-
-</div>
 
 
 <p> Cari Data Siswa : </p>
@@ -35,6 +34,11 @@
     <br/>
     
     <div class="card-body">
+    <a href="/siswa/print-pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
+    <a href="/siswa/print-excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+
+    <br /><br />
+    
         <table id="example1" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
