@@ -18,16 +18,18 @@
 <div class="form-group">
 </div>
 
-<a href="/nilai/tambah"> + Tambah Nilai </a>
+<a href="/nilai/tambah"> 
+<input class="btn btn-primary ml-3" type="submit" value="Tambah Data Nilai Baru"> </a>
 <br/>
 <br/>
+<div class="card-body">
 <p> Cari Nilai : </p>
     <form action="/nilai/cari" method="GET" class="form-inline">
       <input class="form-control" type="text" name="cari" placeholder="Cari Akun NIlai .." value="{{ old('cari') }}">
         <input class="btn btn-primary ml-3" type="submit" value="CARI">
     </form>
     <br/>
-    <div class="card-body">
+    
 
     <a href="/nilai/print-pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
     <a href="/nilai/print-excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>

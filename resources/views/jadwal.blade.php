@@ -18,18 +18,20 @@
 <div class="form-group">
 </div>
 
-<a href="/jadwal/tambah"> + Tambah Jadwal Baru</a>
+<a href="/jadwal/tambah"> 
+<input class="btn btn-primary ml-3" type="submit" value="Tambah Jadwal Baru"> </a>
 <br/>
 <br/>
-
-<p> Cari Jadwal Siswa : </p>
+<div class="card-body">
+    <p> Cari Jadwal Siswa : </p>
     <form action="/jadwal/cari" method="GET" class="form-inline">
       <input class="form-control" type="text" name="cari" placeholder="Cari Jadwal .." value="{{ old('cari') }}">
-        <input class="btn btn-primary ml-3" type="submit" value="CARI">a
+        <input class="btn btn-primary ml-3" type="submit" value="CARI">
     </form>
     <br/>
+    <br/>
+
     
-    <div class="card-body">
         <table id="example1" class="table table-bordered table-hover projects">
             <thead>
                 <tr>

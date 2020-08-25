@@ -79,7 +79,9 @@ Route::get('/users/cari','UserController@cari');
 
 //upload file pembayaran
 Route::get('/upload',  'UploadController@upload')->name('upload');
+Route::get('/upload/tambah', 'UploadController@tambah');
 Route::post('/upload/proses', 'UploadController@process_upload');
+
 
 
 //menjalankan controller bank

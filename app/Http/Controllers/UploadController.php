@@ -26,6 +26,12 @@ class UploadController extends Controller
         return view ('upload', ['gambar' => $gambar, 'user' => $user]);
     }
       
+   
+    public function tambah()
+    {
+        //memanggil view tambah
+        return view ('tambah-upload');
+    }
     public function process_upload(Request $request){
         $this->validate($request, [
             'name' => 'required',

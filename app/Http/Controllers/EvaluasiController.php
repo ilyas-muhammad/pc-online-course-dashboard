@@ -1,21 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Evaluasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\Auth;
 
 class EvaluasiController extends Controller
 {
-    
-    public function index()
-    {
-    //mengambil data dari tabel  evaluasi
-    $evaluasi = DB::table('evaluasi')->get();
+   
+    public function __construct() {
+        $this->middleware('auth');
+    }
 
-    //mengirim data siswa ke view siswa
-    return view ('evaluasi', ['evaluasi' => $evaluasi]);
-}
+    public function index(){
+        $userId = Auth::id();
+        $user = Auth::user();
+
+        $evaluasi = Evaluasi::where('id_user', $userId)->get();
+
+        if ($user->level == 1) { //admin
+            $evaluasi = Evaluasi::get(); // get semua data
+        }
+
+        return view ('evaluasi', ['evaluasi' => $evaluasi, 'user' => $user]);
+    }
+
 public function cari (Request $request)
 {
     $cari = $request->cari;
@@ -26,4 +36,70 @@ public function cari (Request $request)
 
     return view('evaluasi',['evaluasi' => $evaluasi]);
 }
+public function tambah()
+    {
+        //memanggil view tambah
+        return view ('tambah-evaluasi');
+    }
+    public function store(Request $request)
+    {
+        $pesan = [
+            'required' => ':attribute wajib diisi',
+            'min' => ':attribute harus diisi minimal :min 1',
+            'max' => ':attribute harus diisi max :max 1',
+        ];
+        // validasi user data input
+        $this->validate($request,[
+
+            'name' => 'required',
+            'kelas' => 'required',
+            'nama_evaluasi' => 'required',
+            'skor' => 'required',
+
+        ], $pesan);
+
+        //insert data ke table bank
+        DB::table('evaluasi')->insert([
+            'name' => $request->name,
+            'kelas' => $request->kelas,
+            'nama_evaluasi' => $request->nama_evaluasi,
+            'skor' => $request->skor,
+        ]);
+        //alihkan halaman ke halaman bank
+        return redirect ('/evaluasi');
+    
+    
+    }
+    public function edit($id)
+    {
+        //mEnGambil data bank berdasarkan id yang dipilih
+        $evaluasi= DB::table('evaluasi') -> where('id', $id)->get();
+        //passing data bank yang didapat ke view <edit class="blade php">retur</edit>
+        return view('edit-evaluasi', ['evaluasi'=> $evaluasi]);
+    
+    }
+    public function update(Request $request)
+    {
+        //update data siswa
+        DB::table('evaluasi')->where('id', $request->id)->update([
+            'name' => $request->name,
+            'kelas' => $request->kelas,
+            'nama_evaluasi' => $request->nama_evaluasi,
+            'skor' => $request->skor
+        ]);
+
+        //alihkan ke halaman bank
+        return redirect('/evaluasi');
+
+    }
+
+    public function hapus($id)
+    {
+    //menghapus data bank berdasarkan id yang dipilih
+    DB::table('evaluasi')->where('id',$id)->delete();
+
+    //alihkan halaman ke halaman sbank
+    return redirect('/evaluasi');
+}
+
 }

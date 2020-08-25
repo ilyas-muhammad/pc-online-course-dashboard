@@ -13,6 +13,7 @@
 <div class="row">
 <div class="container">
     <div class="col-lg-8 mx-auto my-5">
+    </div>
 
         @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -22,9 +23,22 @@
         </div>
         @endif
 
+        <div class="card">
+        <div class="card-header">
+        <h3 class="card-title">Silahkan Konfirmasi Pembayaran</h3>
+        </div>
+
+        <div class="form-group">
+        </div>
+        
+        <a href="/upload/tambah"> 
+        <input class="btn btn-primary ml-3" type="submit" value="Konfirmasi Pembayaran"> </a>
+        <br/>
+        <br/>
+
         <form action="upload/proses" method="POST" enctype="multipart/form-data">
             {{csrf_field () }}
-
+            
             <div class="form-group">
                 <b> Nama Siswa</b><br/>
                 <input type="text" name="name" class="form-control input-lg" />

@@ -18,6 +18,11 @@
 <div class="form-group">
 </div>
 
+
+<a href="/evaluasi/tambah"> + Tambah Evaluasi </a>
+<br/>
+<br/>
+
 <p> Cari Evaluasi: </p>
     <form action="/evaluasi/cari" method="GET" class="form-inline">
       <input class="form-control" type="text" name="cari" placeholder="Cari Akun Evaluasi .." value="{{ old('cari') }}">
@@ -41,9 +46,12 @@
                     <th style="width: 10%">
                         Skor
                     </th>
+                    
+                    @if ($user->level == 1)
                     <th style="width: 20%">
                         Actions
                     </th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +61,8 @@
                   <td> {{ $e-> kelas}}</td>
                   <td> {{ $e-> nama_evaluasi}}</td>
                   <td> {{ $e-> skor}}</td>
+                  
+                  @if ($user->level == 1)
                   <td class="project-actions text-right">
                   <a class="btn btn-info btn-sm" href="evaluasi/edit/{{$e->id}}">
                             <i class="fas fa-pencil-alt">
@@ -65,6 +75,7 @@
                             Delete
                         </a>
                   </td>
+                  @endif
                 </tr>
                 </tr>
             </tbody>
