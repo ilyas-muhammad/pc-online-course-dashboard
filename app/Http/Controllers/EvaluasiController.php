@@ -17,10 +17,10 @@ class EvaluasiController extends Controller
         $userId = Auth::id();
         $user = Auth::user();
 
-        $evaluasi = Evaluasi::where('id_user', $userId)->get();
+        $evaluasi = DB::table('evaluasi')->where('id_user', $userId)->get();
 
         if ($user->level == 1) { //admin
-            $evaluasi = Evaluasi::get(); // get semua data
+            $evaluasi = DB::table('evaluasi')->get(); // get semua data
         }
 
         return view ('evaluasi', ['evaluasi' => $evaluasi, 'user' => $user]);
@@ -38,8 +38,9 @@ public function cari (Request $request)
 }
 public function tambah()
     {
+        $siswa = DB::table('siswa')->get();
         //memanggil view tambah
-        return view ('tambah-evaluasi');
+        return view ('tambah-evaluasi', ['siswa' => $siswa]);
     }
     public function store(Request $request)
     {
@@ -58,17 +59,28 @@ public function tambah()
 
         ], $pesan);
 
+        $siswa = DB::table('siswa')->where('id_users', $request->name)->first();
+
         //insert data ke table bank
         DB::table('evaluasi')->insert([
-            'name' => $request->name,
+            'name' => $siswa->name,
             'kelas' => $request->kelas,
             'nama_evaluasi' => $request->nama_evaluasi,
             'skor' => $request->skor,
+            'id_user' => $siswa->id_users,
         ]);
-        //alihkan halaman ke halaman bank
-        return redirect ('/evaluasi');
-    
-    
+        
+
+        $userId = Auth::id();
+        $user = Auth::user();
+
+        $evaluasi = DB::table('evaluasi')->where('id_user', $userId)->get();
+
+        if ($user->level == 1) { //admin
+            $evaluasi = DB::table('evaluasi')->get(); // get semua data
+        }
+
+        return view ('evaluasi', ['evaluasi' => $evaluasi, 'user' => $user]);
     }
     public function edit($id)
     {

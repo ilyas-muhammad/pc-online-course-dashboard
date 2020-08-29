@@ -16,15 +16,31 @@
 </div>
 
 <div class="card-body">
-</div>
 
 
-<p> Cari Data Siswa : </p>
-    <form action="/siswa/cari" method="GET" class="form-inline">
-      <input class="form-control" type="text" name="cari" placeholder="Cari Siswa .." value="{{ old('cari') }}">
-        <input class="btn btn-primary ml-3" type="submit" value="CARI">
+
+
+    <form action="{{ action('SiswaController@report') }}" method="POST" class="form-inline">
+        {{ csrf_field() }}
+        <label>Kelas : </label>
+        <select name="kelas">
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+        <input type="date" name="tanggalblbabla" />
+        <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
     </form>
     <br/>
+
+    <a href="/siswa/print-pdf/{{ $kelas ?? '' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
+    <a href="/siswa/print-excel/{{ $kelas ?? '' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
     <table id="example1" class="table table-bordered table-hover projects">
             <thead>

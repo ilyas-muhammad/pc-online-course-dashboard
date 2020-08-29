@@ -28,7 +28,7 @@
 </div>
 @endif 
 
-<form action="/siswa/store" method="POST">
+<form action="/siswa/store" method="POST" >
     {{ csrf_field()}}
     <div class="form-group">
         <label for="name">*Name</label>

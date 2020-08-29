@@ -28,8 +28,8 @@
 @endif 
 
 
-    <form action="upload/proses" method="POST" enctype="multipart/form-data">
-            {{csrf_field () }}
+    <form action="{{ action('UploadController@process_upload') }}" method="POST" enctype="multipart/form-data">
+            {{ csrf_field() }}
 
             <div class="form-group">
                 <b> Nama Siswa</b><br/>
@@ -60,7 +60,7 @@
 
             <div class="form-group">
                 <b> File Gambar</b><br/>
-                <input type ="file" name="file">
+                <input type="file" name="file" />
             </div>
 
             <div class="form-group">

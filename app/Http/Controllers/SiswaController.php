@@ -20,6 +20,29 @@ class SiswaController extends Controller
 
     }
 
+    public function laporan()
+    {
+    //mengambil data dari tabel  siswa
+    $siswa = DB::table('siswa')->get();
+
+    //mengirim data siswa ke view siswa
+    return view('adminlte.laporan.laporan-siswa', ['siswa' => $siswa]);
+
+    }
+
+    public function report(Request $request)
+    {
+        $kelas = $request->kelas;
+
+        //mengambil data dari tabel  siswa
+        $siswa = DB::table('siswa')
+        ->where('kelas','like',"%" .$kelas."%")
+        ->get();
+
+        //mengirim data siswa ke view siswa
+        return view('adminlte.laporan.laporan-siswa', ['siswa' => $siswa, 'kelas' => $kelas]);
+    }
+
     public function cari (Request $request)
     {
         $cari = $request->cari;
@@ -99,16 +122,27 @@ class SiswaController extends Controller
         return redirect('/siswa');
     }
     
-    public function printPDF()
+    public function printPDF($kelas)
     {
         $siswa = DB::table('siswa')->get();
+        
+        if ($kelas) {
+            $siswa = DB::table('siswa')->where('kelas', 'like', "%".$kelas."%")->get();
+        }
+        
         $pdf = PDF::loadview('siswa-pdf', ['siswa' => $siswa]);
         return $pdf->download('data-siswa-pdf');
 
     }
 
-    public function printExcel()
+    public function printExcel($kelas)
     {
-        return Excel::download(new SiswaExport, 'data-siswa.xls');
+        $siswa = DB::table('siswa')->get();
+        
+        if ($kelas) {
+            $siswa = DB::table('siswa')->where('kelas', 'like', "%".$kelas."%")->get();
+        }
+
+        return Excel::download($siswa, 'data-siswa.xls');
     }
 }

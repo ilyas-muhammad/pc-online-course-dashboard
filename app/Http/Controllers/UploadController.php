@@ -32,14 +32,15 @@ class UploadController extends Controller
         //memanggil view tambah
         return view ('tambah-upload');
     }
-    public function process_upload(Request $request){
+    public function process_upload(Request $request)
+    {
         $this->validate($request, [
             'name' => 'required',
             'nama_bank' => 'required',
             'no_rekening' => 'required',
             'jml_transfer' => 'required',
             'tgl_pembayaran' => 'required',
-            'file' => 'required|file|image|mimes:jpeg,png|max:2048',
+            // 'file' => 'required|image|mimes:jpeg,png|max:2048',
             'keterangan' => 'required',
         ]);
         $file = $request->file('file');
@@ -60,7 +61,17 @@ class UploadController extends Controller
             'file' => $name,
             'keterangan' => $request->keterangan,
         ]);
-        return redirect()->back();
+
+        $userId = Auth::id();
+        $user = Auth::user();
+
+        $gambar = Galery::where('id_user', $userId)->get();
+
+        if ($user->level == 1) { //admin
+            $gambar = Galery::get(); // get semua data
+        }
+
+        return view ('upload', ['gambar' => $gambar, 'user' => $user]);
     }
 
     public function approved($request)

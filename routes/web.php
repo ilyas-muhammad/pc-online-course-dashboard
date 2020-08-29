@@ -37,9 +37,8 @@ Route::get('/crud/edit', function () {
     return view('adminlte.crud.edit');
 })->name('crud.edit');
 
-Route::get('/laporan/laporan-siswa', function () {
-    return view('adminlte.laporan.laporan-siswa');
-})->name('laporan.laporan-siswa');
+Route::get('/laporan/laporan-siswa', 'SiswaController@laporan')->name('laporan.laporan-siswa');
+Route::post('/laporan-siswa/report', 'SiswaController@report');
 
 Route::get('/laporan/laporan-absensi', function () {
     return view('adminlte.laporan.laporan-absensi');
@@ -80,8 +79,8 @@ Route::post('/siswa/update', 'SiswaController@update');
 //hapus siswa
 Route::get('/siswa/hapus/{params}', 'SiswaController@hapus');
 //cetak data siswa
-Route::get('/siswa/print-pdf', 'SiswaController@printPDF');
-Route::get('/siswa/print-excel', 'SiswaController@printExcel');
+Route::get('/siswa/print-pdf/{kelas}', 'SiswaController@printPDF');
+Route::get('/siswa/print-excel/{kelas}', 'SiswaController@printExcel');
 
 //menjalankan controller user
 Route::get('/users', 'UserController@index')->name('users');

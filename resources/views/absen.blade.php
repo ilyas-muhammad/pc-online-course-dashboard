@@ -28,6 +28,7 @@
             <thead>
                 <tr>
                     <th>Nama Siswa</th>
+                    <th>Kelas</th>
                     <th>Hari</th>
                     <th>Waktu Mulai</th>
                     <th>Waktu Selesai</th>
@@ -41,7 +42,7 @@
                 <tr>
                     @foreach($jadwal as $idx => $j)
                 <td> {{ $siswa->name }} </td>
-
+                <td> {{ $siswa->kelas }} </td>
                 <td>{{ $j->hari }}</td>
                 <td>{{ $j->waktu_mulai }}</td>
                 <td>{{ $j->waktu_akhir }}</td>

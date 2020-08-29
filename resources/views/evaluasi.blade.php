@@ -18,8 +18,9 @@
 <div class="form-group">
 </div>
 
-
-<a href="/evaluasi/tambah"> + Tambah Evaluasi </a>
+@if ($user->level == 1)
+    <a href="/evaluasi/tambah"> + Tambah Evaluasi </a>
+@endif
 <br/>
 <br/>
 
@@ -59,7 +60,7 @@
             <tr>
                   <td> {{ $e-> name}}</td>
                   <td> {{ $e-> kelas}}</td>
-                  <td> {{ $e-> nama_evaluasi}}</td>
+                  <td> <a href="{{ $e-> nama_evaluasi}}" target="_blank"> {{ $e->nama_evaluasi }} </a></td>
                   <td> {{ $e-> skor}}</td>
                   
                   @if ($user->level == 1)

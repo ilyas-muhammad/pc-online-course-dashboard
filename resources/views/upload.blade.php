@@ -36,7 +36,7 @@
         <br/>
         <br/>
 
-        <form action="upload/proses" method="POST" enctype="multipart/form-data">
+        {{-- <form action="upload/proses" method="POST" enctype="multipart/form-data">
             {{csrf_field () }}
             
             <div class="form-group">
@@ -78,7 +78,7 @@
 
 
             <input type="submit" value="Upload" class="btn btn-primary">
-        </form>
+        </form> --}}
 
         <h4 class="my-5">Data Pembayaran Siswa</h4>
 
