@@ -80,7 +80,7 @@
             <input type="submit" value="Upload" class="btn btn-primary">
         </form>
 
-        <h4 class="my-5">Galery</h4>
+        <h4 class="my-5">Data Pembayaran Siswa</h4>
 
         <table class="table table-bordered table-stripped">
             <thead>

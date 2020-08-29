@@ -15,17 +15,9 @@
         <h3 class="card-title">Data Siswa</h3>
 </div>
 
-
-
-<div class="form-group">
+<div class="card-body">
 </div>
 
-<a href="/siswa/tambah"> 
-<input class="btn btn-primary ml-3" type="submit" value="Tambah Siswa Baru"> </a>
-<br/>
-<br/>
-
-<div class="card-body">
 
 <p> Cari Data Siswa : </p>
     <form action="/siswa/cari" method="GET" class="form-inline">
@@ -33,14 +25,8 @@
         <input class="btn btn-primary ml-3" type="submit" value="CARI">
     </form>
     <br/>
-    
-  
-    <a href="/siswa/print-pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
-    <a href="/siswa/print-excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
-    <br /><br />
-    
-        <table id="example1" class="table table-bordered table-hover projects">
+    <table id="example1" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
                     <th style="width: 20%">
@@ -58,9 +44,6 @@
                     <th style="width: 5%" class="text-center">
                         Status
                     </th>
-                    <th style="width: 20%">
-                        Actions
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -71,21 +54,7 @@
                   <td> {{ $s-> kelas }}</td>
                   <td> {{ $s-> jenkel }}</td>
                   <td> {{ $s-> status }}</td>
-                    
-                   
-                    <td class="project-actions text-right">
-                
-                        <a class="btn btn-info btn-sm" href="siswa/edit/{{$s->id}}">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="siswa/hapus/{{ $s->id}}">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a>
-                    </td>
+                  </td>
                 </tr>
                 </tr>
             </tbody>
@@ -111,4 +80,4 @@
       });
     });
 </script>
-@endpush
+@endpush        

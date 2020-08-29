@@ -1,5 +1,11 @@
 @extends('auth.master')
 
+<body style ="background-color:pink;">
+
+
+
+
+
 {{-- Title --}}
 @section('title', "An-Najm Prestasi - Login")
 

@@ -21,19 +21,19 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('jadwal') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
+                    <i class="nav-icon fa fa-calendar"></i>
                         <p> Jadwal </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('absen') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
+                        <i class="nav-icon far fa-calendar-check"></i>
                         <p> Absensi  </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('siswa') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
+                    <i class="nav-icon fa fa-users"></i>
                         <p> Siswa </p>
                     </a>
                 </li>
@@ -41,34 +41,34 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('bank') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
+                    <i class="nav-icon fa fa-credit-card"></i>
                         <p> Akun Bank </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('evaluasi') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
+                        <i class="nav-icon far fa-newspaper"></i>
                         <p> Evaluasi Siswa </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('nilai') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
+                        <i class="nav-icon far fa-file-alt"></i>
                         <p> Data Nilai Siswa </p>
                     </a>
                 </li>
                 
                 <li class="nav-item">
                     <a href="{{ route('upload') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
+                    <i class="nav-icon fa fa-credit-card"></i>
                         <p> Konfirmasi Pembayaran </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('users') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fa fa-user"></i>
                         <p> User </p>
                     </a>
                 </li>
@@ -104,6 +104,42 @@
                             <a href="{{ route('crud.edit') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Edit</p>
+                            </a>
+                        </li>
+                        
+
+                        <li class="nav-header">Laporan</li>
+                        <li class="nav-item has-treeview">
+                         <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            LAPORAN
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('laporan.laporan-siswa') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Data Siswa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('laporan.laporan-absensi') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Data Absensi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('laporan.laporan-pembayaran') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Data Pembayaran</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('laporan.laporan-nilai') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Nilai Siswa</p>
                             </a>
                         </li>
                     </ul>

@@ -37,6 +37,22 @@ Route::get('/crud/edit', function () {
     return view('adminlte.crud.edit');
 })->name('crud.edit');
 
+Route::get('/laporan/laporan-siswa', function () {
+    return view('adminlte.laporan.laporan-siswa');
+})->name('laporan.laporan-siswa');
+
+Route::get('/laporan/laporan-absensi', function () {
+    return view('adminlte.laporan.laporan-absensi');
+})->name('laporan.laporan-absensi');
+
+Route::get('/laporan/laporan-pembayaran', function () {
+    return view('adminlte.laporan.laporan-pembayaran');
+})->name('laporan.laporan-pembayaran');
+
+Route::get('/laporan/laporan-nilai', function () {
+    return view('adminlte.laporan.laporan-nilai');
+})->name('laporan.laporan-nilai');
+
 
 //menjalankan controller jadwal
 Route::get('/jadwal', 'JadwalController@index')->name('jadwal');
