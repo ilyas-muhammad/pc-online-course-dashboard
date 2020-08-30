@@ -15,8 +15,6 @@
         <h3 class="card-title">Data Siswa</h3>
 </div>
 
-
-
 <div class="form-group">
 </div>
 

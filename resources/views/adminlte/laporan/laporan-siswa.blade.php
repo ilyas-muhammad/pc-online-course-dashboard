@@ -39,8 +39,8 @@
 
 
 
-    <a href="/siswa/print-pdf/{{ $kelas ?? '' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
-    <a href="/siswa/print-excel/{{ $kelas ?? '' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+    <a href="/siswa/print-pdf/{{ $kelas ?? 'nofilter' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
+    <a href="/siswa/print-excel/{{ $kelas ?? 'nofilter' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
     <table id="example1" class="table table-bordered table-hover projects">
             <thead>

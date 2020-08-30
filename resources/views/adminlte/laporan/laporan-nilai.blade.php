@@ -37,13 +37,13 @@
         
         <br/>
         <label>Tanggal : </label>
-        <input type="date" name="tanggalblbabla" />
+        <input type="date" name="tanggal" />
         <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
     </form>
     <br/>
 
-<a href="/nilai/print-pdf/{{ $kelas ?? '' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
- <a href="/nilai/print-excel/{{ $kelas ?? '' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+<a href="/nilai/print-pdf/{{ $kelas ?? 'nofilter' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
+ <a href="/nilai/print-excel/{{ $kelas ?? 'nofilter' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
     
         <table id="example1" class="table table-bordered table-hover projects">

@@ -124,7 +124,7 @@ class SiswaController extends Controller
     {
         $siswa = DB::table('siswa')->get();
         
-        if ($kelas) {
+        if ($kelas !== 'nofilter') {
             $siswa = DB::table('siswa')->where('kelas', 'like', "%".$kelas."%")->get();
         }
         
@@ -135,12 +135,6 @@ class SiswaController extends Controller
 
     public function printExcel($kelas)
     {
-        $siswa = DB::table('siswa')->get();
-        
-        if ($kelas) {
-            $siswa = DB::table('siswa')->where('kelas', 'like', "%".$kelas."%")->get();
-        }
-
-        return Excel::download($siswa, 'data-siswa.xls');
+        return Excel::download(new SiswaExport($kelas), 'data-siswa.xls');
     }
 }

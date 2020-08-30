@@ -1,7 +1,7 @@
 
 @extends('adminlte.layouts.app')
 
-@section('title', 'Tambah Data Siswa')
+@section('title', 'Tambah Data User')
 
 {{-- Custom CSS --}}
 @push('css')
@@ -12,7 +12,7 @@
 
 @section('content')
 
-<a href="/siswa"> Kembali</a>
+<a href="/users"> Kembali</a>
 <br/>
 <br/>
 
@@ -28,7 +28,7 @@
 </div>
 @endif 
 
-<form action="/siswa/store" method="POST" >
+<form action="/users/store" method="POST" >
     {{ csrf_field()}}
     <div class="form-group">
         <label for="name">*Name</label>
@@ -39,22 +39,18 @@
         <label for="email">*Email</label>
         <input class="form-control" type="text" name="email" value="{{ old ('email') }}">
     </div> 
-
+    
     <div class="form-group">
-        <label for="kelas">*Kelas</label>
-        <input class="form-control" type="text" name="kelas" value="{{ old ('kelas') }}">
-    </div> 
-
-    <div class="form-group">
-        <label for="jenkel">*Jenis Kelamin</label>
-        <input class="form-control" type="text" name="jenkel" value="{{ old ('jenkel') }}">
+        <label for="password">*Password</label>
+        <input class="form-control" type="text" name="password" value="{{ old ('password') }}">
     </div> 
 
     <div class="form-group">
         <label for="status">*Status</label>
-        <input class="form-control" type="text" name="status" value="{{ old ('name') }}">
+        <input class="form-control" type="text" name="status" value="{{ old ('status') }}">
     </div> 
 
+    
     
     
  <div class="form-group">

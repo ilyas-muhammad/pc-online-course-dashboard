@@ -14,23 +14,39 @@
 <div class="container">
     <div class="col-lg-8 mx-auto my-5">
     </div>
+    <div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Laporan Data Pembayaran Siswa</h3>
+</div>
+    <div class="card-body">
+    <form action="{{ action('UploadController@report') }}" method="POST" class="form-inline">
+        {{ csrf_field() }}
+        <label>Kelas : </label>
+        <select name="kelas">
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+        <input class="btn btn-primary ml-3" type="submit" value="Tampilkan"><br/><br/>
 
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-            {{ $error }} <br/>
-            @endforeach
-        </div>
-        @endif
+        
+        <br/>
+        <label>Tanggal : </label>
+        <input type="date" name="tanggalblbabla" />
+        <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
+    </form>
+    <br/>
 
-        <div class="card">
-        <div class="card-header">
-        <h3 class="card-title">Silahkan Konfirmasi Pembayaran</h3>
-        </div>
+    <a href="/upload/print-pdf/{{ $kelas ?? '' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
+    <a href="/upload/print-excel/{{ $kelas ?? '' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
-        <div class="form-group">
-        </div>
-        <h4 class="my-5">Laporan Data Pembayaran Siswa</h4>
+    
 
 <table class="table table-bordered table-stripped">
     <thead>
@@ -40,13 +56,11 @@
             <th>Nama Bank</th>
             <th>No Rekening</th>
             <th>Tanggal Pembayaran</th>
+            <th>Jumlah Transfer</th>
             <th width="10%">File</th>
             <th>Keterangan</th>
             <th>Status</th>
 
-            @if ($user->level == 1)
-            <th>Action</th>
-            @endif
         </tr>
     </thead>
     <tbody>
@@ -57,26 +71,12 @@
         <td>{{$g -> nama_bank}} </td>
         <td>{{$g -> no_rekening}} </td>
         <td>{{$g -> tgl_pembayaran }} </td>
+        <td>{{$g -> jml_transfer }} </td>
         <td><img width="150px" src="{{ url('/images/'.$g->file) }}"></td>
         <td>{{$g -> keterangan }} </td>
         <td>{{$g -> status }} </td>
-        
-        @if ($user->level == 1)
-        <td class="project-actions text-right">
-        
-        <a class="btn btn-info btn-sm" href="upload/approved/{{$g->id}}">
-            <i class="fas fa-pencil-alt">
-            </i>
-            Approved
-        </a>
-        <a class="btn btn-danger btn-sm" href="upload/decline/{{ $g->id}}">
-            <i class="fas fa-trash">
-            </i>
-            Decline
-        </a>
-    </td>
-    @endif
-    
+
+    </td>    
         </tr>
         @endforeach
     </tbody>

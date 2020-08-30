@@ -28,6 +28,7 @@
         <h3 class="card-title">Silahkan Konfirmasi Pembayaran</h3>
         </div>
 
+        <div class="card-body">
         <div class="form-group">
         </div>
         

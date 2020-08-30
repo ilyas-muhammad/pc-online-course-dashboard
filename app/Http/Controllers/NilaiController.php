@@ -127,8 +127,8 @@ public function tambah()
     {
         $nilai = DB::table('nilai')->get();
 
-        if ($kelas) {
-            $nilai = DB::table('nilai')->where('nilai', 'like', "%".$kelas."%")->get();
+        if ($kelas !== 'nofilter') {
+            $nilai = DB::table('nilai')->where('kelas', 'like', "%".$kelas."%")->get();
         }
 
         $pdf = PDF::loadview('nilai-pdf', ['nilai' => $nilai]);
@@ -140,7 +140,7 @@ public function tambah()
     {
         $nilai = DB::table('nilai')->get();
         
-        if ($kelas) {
+        if ($kelas !== 'nofilter') {
             $nilai = DB::table('nilai')->where('kelas', 'like', "%".$kelas."%")->get();
         }
 

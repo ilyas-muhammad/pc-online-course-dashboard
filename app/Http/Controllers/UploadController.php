@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Galery;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use PDF;
+use App\Exports\NilaiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UploadController extends Controller
 {
@@ -25,7 +28,41 @@ class UploadController extends Controller
 
         return view ('upload', ['gambar' => $gambar, 'user' => $user]);
     }
-      
+    
+
+    public function laporan()
+    {
+        //mengambil data dari tabel  siswa
+        $abc = DB::table('galeries')->get();
+
+        //mengirim data siswa ke view siswa
+        return view('adminlte.laporan.laporan-pembayaran', ['gambar' => $abc]);
+    }
+
+public function report(Request $request)
+{
+    $kelas = $request->kelas;
+
+    //mengambil data dari tabel  siswa
+    $galeries = DB::table('galeries')
+    ->where('kelas','like',"%" .$kelas."%")
+    ->get();
+
+    //mengirim data siswa ke view siswa
+    return view('adminlte.laporan.laporan-pembayaran', ['gambar' => $gambar, 'kelas' => $kelas]);
+}
+
+
+public function cari (Request $request)
+{
+    $cari = $request->cari;
+
+    $galeries = DB::table('galeries')
+    ->where('name','like',"%" .$cari."%")
+    ->paginate();
+
+    return view('upload',['gambar' => $gambar]);
+}
    
     public function tambah()
     {
@@ -102,5 +139,27 @@ class UploadController extends Controller
         return redirect()->back();
 
     }
-    
+    public function printPDF($kelas)
+    {
+        $galeries = DB::table('galeries')->get();
+        
+        if ($kelas) {
+            $siswa = DB::table('galeries')->where('kelas', 'like', "%".$kelas."%")->get();
+        }
+        
+        $pdf = PDF::loadview('pembayaran-pdf', ['galeries' => $galeries]);
+        return $pdf->download('data-pembayaran-pdf');
+
+    }
+
+    public function printExcel($kelas)
+    {
+        $galeries = DB::table('galeries')->get();
+        
+        if ($kelas) {
+            $siswa = DB::table('galeries')->where('kelas', 'like', "%".$kelas."%")->get();
+        }
+
+        return Excel::download($galeries, 'data-pembayaran.xls');
+    }
 }

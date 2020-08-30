@@ -89,7 +89,14 @@ Route::get('/siswa/print-excel/{kelas}', 'SiswaController@printExcel');
 Route::get('/users', 'UserController@index')->name('users');
 //search data user
 Route::get('/users/cari','UserController@cari');
-
+//tambah siswa baru
+Route::get('/users/tambah', 'UserController@tambah');
+Route::post('/users/store', 'UserController@store');
+//edit siswa
+Route::get('/users/edit/{params}', 'UserController@edit');
+Route::post('/users/update', 'UserController@update');
+//hapus siswa
+Route::get('/users/hapus/{params}', 'UserController@hapus');
 
 //one to many hari ke jadwal
 //Route::get('/hari-jadwal', 'HariController@index');
@@ -161,4 +168,5 @@ Route::post('/nilai/update', 'NilaiController@update');
 //hapus 
 Route::get('/nilai/hapus/{params}', 'NilaiController@hapus');
 //cetak nilai siswa
-Route::get('/nilai/print-pdf', 'NilaiController@printPDF');
+Route::get('/nilai/print-pdf/{params}', 'NilaiController@printPDF');
+Route::get('/nilai/print-excel/{params}', 'NilaiController@printExcel');
