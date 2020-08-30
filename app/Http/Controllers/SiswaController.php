@@ -17,7 +17,6 @@ class SiswaController extends Controller
 
     //mengirim data siswa ke view siswa
     return view ('siswa', ['siswa' => $siswa]);
-
     }
 
     public function laporan()
@@ -88,7 +87,6 @@ class SiswaController extends Controller
         return redirect ('/siswa');
     
         
-
     }
     public function edit($id)
     {

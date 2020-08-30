@@ -19,11 +19,13 @@
 </div>
 
 @if ($user->level == 1)
-    <a href="/evaluasi/tambah"> + Tambah Evaluasi </a>
+    <a href="/evaluasi/tambah"> 
+    <input class="btn btn-primary ml-3" type="submit" value="Tambah Evaluasi Baru"></a>
 @endif
 <br/>
 <br/>
 
+<div class="card-body">
 <p> Cari Evaluasi: </p>
     <form action="/evaluasi/cari" method="GET" class="form-inline">
       <input class="form-control" type="text" name="cari" placeholder="Cari Akun Evaluasi .." value="{{ old('cari') }}">
@@ -31,7 +33,7 @@
     </form>
     <br/>
 
-    <div class="card-body">
+   
         <table id="example1" class="table table-bordered table-hover projects">
             <thead>
                 <tr>

@@ -15,18 +15,45 @@
         <h3 class="card-title">Data Nilai Siswa</h3>
 </div>
 
-<div class="form-group">
-</div>
-<a href="/nilai/print-pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
-    <a href="/nilai/print-excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
-    <br/><br/>
+<div class="card-body">
+
+<form action="{{ action('NilaiController@report') }}" method="POST" class="form-inline">
+        {{ csrf_field() }}
+        <label>Kelas : </label>
+        <select name="kelas">
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+        <input class="btn btn-primary ml-3" type="submit" value="Tampilkan"><br/><br/>
+
+        
+        <br/>
+        <label>Tanggal : </label>
+        <input type="date" name="tanggalblbabla" />
+        <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
+    </form>
+    <br/>
+
+<a href="/nilai/print-pdf/{{ $kelas ?? '' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
+ <a href="/nilai/print-excel/{{ $kelas ?? '' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+
     
         <table id="example1" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
                     <th style="width: 20%">
                         Nama Siswa
+                    </th>
+                    <th style="width: 10%">
+                        Tanggal Evaluasi
                     </th>
                     <th style="width: 10%">
                         Kelas
@@ -37,32 +64,16 @@
                     <th style="width: 10%">
                     Skor
                     </th>
-                    <th style="width: 20%">
-                        Actions
-                    </th>
                 </tr>
             </thead>
             <tbody>
             @foreach ($nilai as $n)
                 <tr>
                   <td> {{ $n-> name}}</td>
+                  <td> {{ $n-> tgl_evaluasi}}</td>
                   <td> {{ $n-> kelas}}</td>
                   <td> {{ $n-> jenkel}}</td>
                   <td> {{ $n-> skor}}</td>
-                    
-                   
-                    <td class="project-actions text-right">
-                
-                        <a class="btn btn-info btn-sm" href="nilai/edit/{{$n->id}}">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="nilai/hapus/{{ $n->id}}">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a>
                     </td>
                 </tr>
                 </tr>

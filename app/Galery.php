@@ -8,7 +8,7 @@ class Galery extends Model
 {
     protected $table = 'galeries';
 
-    protected $fillable = ['name', 'nama_bank', 'no_rekening', 'tgl_pembayaran', 'file', 'keterangan', 'id_user'];
+    protected $fillable = ['name', 'nama_bank', 'no_rekening', 'tgl_pembayaran', 'jml_transfer','file', 'keterangan', 'id_user'];
 
     public function user()
     {

@@ -43,8 +43,12 @@
                         Nama Siswa
                     </th>
                     <th style="width: 10%">
+                        Tanggal Evaluasi
+                    </th>
+                    <th style="width: 10%">
                         Kelas
                     </th>
+                    
                     <th style="width: 5%">
                      Jenis Kelamin
                     </th>
@@ -60,6 +64,7 @@
             @foreach ($nilai as $n)
                 <tr>
                   <td> {{ $n-> name}}</td>
+                  <td> {{ $n-> tgl_evaluasi}}</td>
                   <td> {{ $n-> kelas}}</td>
                   <td> {{ $n-> jenkel}}</td>
                   <td> {{ $n-> skor}}</td>

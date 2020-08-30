@@ -90,6 +90,7 @@
                     <th>Nama Bank</th>
                     <th>No Rekening</th>
                     <th>Tanggal Pembayaran</th>
+                    <th>Jumlah Transfer</th>
                     <th width="10%">File</th>
                     <th>Keterangan</th>
                     <th>Status</th>
@@ -107,6 +108,7 @@
                 <td>{{$g -> nama_bank}} </td>
                 <td>{{$g -> no_rekening}} </td>
                 <td>{{$g -> tgl_pembayaran }} </td>
+                <td>{{$g -> jml_transfer  }} </td>
                 <td><img width="150px" src="{{ url('/images/'.$g->file) }}"></td>
                 <td>{{$g -> keterangan }} </td>
                 <td>{{$g -> status }} </td>

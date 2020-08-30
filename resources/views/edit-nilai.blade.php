@@ -20,6 +20,7 @@
     <input type="hidden" name="id" value="{{ $n->id}}"> <br/>
 
     Nama  Siswa: <input type="text"  required="required" name="name" value="{{ $n-> name}}"> <br/><br/>
+    Tgl Evaluasi: <input type="date"  required="required" name="tgl_evaluasi" value="{{ $n-> tgl_evaluasi}}"> <br/><br/>
     Kelas : <input type="text"  required="required" name="kelas" value="{{ $n-> kelas}}"> <br/><br/>
     Jenis Kelamin : <input type="text"  required="required" name="jenkel" value="{{ $n-> jenkel}}"> <br/><br/>
     Skor : <input type="text"  required="required" name="skor" value="{{ $n-> skor}}"> <br/><br/>

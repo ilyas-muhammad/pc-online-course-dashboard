@@ -20,6 +20,7 @@
     <input type="hidden" name="id" value="{{ $e->id}}"> <br/>
 
     Nama  Siswa: <input type="text"  required="required" name="name" value="{{ $e-> name}}"> <br/><br/>
+   
     Kelas : <input type="text"  required="required" name="kelas" value="{{ $e-> kelas}}"> <br/><br/>
     Link Evaluasi: <input type="text"  required="required" name="nama_evaluasi" value="{{ $e-> nama_evaluasi}}"> <br/><br/>
     Skor : <input type="text"  required="required" name="skor" value="{{ $e-> skor}}"> <br/><br/>

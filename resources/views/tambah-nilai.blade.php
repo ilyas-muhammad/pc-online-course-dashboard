@@ -35,6 +35,11 @@
     </div> 
   
     <div class="form-group">
+    <b> Tanggal Evaluasi</b><br/>
+        <input type="date" name="tgl_evaluasi" value="{{ old ('tgl_evaluasi') }}">
+    </div> 
+
+    <div class="form-group">
         <label for="kelas">*Kelas</label>
         <input class="form-control" type="text" name="kelas" value="{{ old ('kelas') }}">
     </div> 

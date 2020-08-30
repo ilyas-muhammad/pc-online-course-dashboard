@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
 use PDF;
+use App\Exports\NilaiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class NilaiController extends Controller
 {
@@ -16,6 +18,31 @@ class NilaiController extends Controller
     //mengirim data siswa ke view siswa
     return view ('nilai', ['nilai' => $nilai]);
 }
+
+public function laporan()
+{
+//mengambil data dari tabel  siswa
+$nilai = DB::table('nilai')->get();
+
+//mengirim data siswa ke view siswa
+return view('adminlte.laporan.laporan-nilai', ['nilai' => $nilai]);
+
+}
+
+public function report(Request $request)
+{
+    $kelas = $request->kelas;
+
+    //mengambil data dari tabel  siswa
+    $nilai = DB::table('nilai')
+    ->where('kelas','like',"%" .$kelas."%")
+    ->get();
+
+    //mengirim data siswa ke view siswa
+    return view('adminlte.laporan.laporan-nilai', ['nilai' => $nilai, 'kelas' => $kelas]);
+}
+
+
 public function cari (Request $request)
 {
     $cari = $request->cari;
@@ -43,6 +70,7 @@ public function tambah()
         $this->validate($request,[
 
             'name' => 'required',
+            'tgl_evaluasi' => 'required',
             'kelas' => 'required',
             'jenkel' => 'required',
             'skor' => 'required',
@@ -52,6 +80,7 @@ public function tambah()
         //insert data ke table bank
         DB::table('nilai')->insert([
             'name' => $request->name,
+            'tgl_evaluasi' => $request->tgl_evaluasi,
             'kelas' => $request->kelas,
             'jenkel' => $request->jenkel,
             'skor' => $request->skor,
@@ -74,6 +103,7 @@ public function tambah()
         //update data siswa
         DB::table('nilai')->where('id', $request->id)->update([
             'name' => $request->name,
+            'tgl_evaluasi' => $request->tgl_evaluasi,
             'kelas' => $request->kelas,
             'jenkel' => $request->jenkel,
             'skor' => $request->skor
@@ -93,12 +123,28 @@ public function tambah()
     return redirect('/nilai');
 }
 
-    public function printPDF()
+    public function printPDF($kelas)
     {
         $nilai = DB::table('nilai')->get();
+
+        if ($kelas) {
+            $nilai = DB::table('nilai')->where('nilai', 'like', "%".$kelas."%")->get();
+        }
+
         $pdf = PDF::loadview('nilai-pdf', ['nilai' => $nilai]);
         return $pdf->download('data-nilai-pdf');
 
+    }
+
+    public function printExcel($kelas)
+    {
+        $nilai = DB::table('nilai')->get();
+        
+        if ($kelas) {
+            $nilai = DB::table('nilai')->where('kelas', 'like', "%".$kelas."%")->get();
+        }
+
+        return Excel::download($nilai, 'data-nilai.xls');
     }
 }
 

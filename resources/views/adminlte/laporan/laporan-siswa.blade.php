@@ -15,10 +15,8 @@
         <h3 class="card-title">Data Siswa</h3>
 </div>
 
+
 <div class="card-body">
-
-
-
 
     <form action="{{ action('SiswaController@report') }}" method="POST" class="form-inline">
         {{ csrf_field() }}
@@ -38,6 +36,8 @@
         <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
     </form>
     <br/>
+
+
 
     <a href="/siswa/print-pdf/{{ $kelas ?? '' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
     <a href="/siswa/print-excel/{{ $kelas ?? '' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>

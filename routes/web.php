@@ -37,20 +37,23 @@ Route::get('/crud/edit', function () {
     return view('adminlte.crud.edit');
 })->name('crud.edit');
 
+//laporan data siswa
 Route::get('/laporan/laporan-siswa', 'SiswaController@laporan')->name('laporan.laporan-siswa');
 Route::post('/laporan-siswa/report', 'SiswaController@report');
 
-Route::get('/laporan/laporan-absensi', function () {
-    return view('adminlte.laporan.laporan-absensi');
-})->name('laporan.laporan-absensi');
+//laporan data siswa
+Route::get('/laporan/laporan-nilai', 'NilaiController@laporan')->name('laporan.laporan-nilai');
+Route::post('/laporan-nilai/report', 'NilaiController@report');
 
-Route::get('/laporan/laporan-pembayaran', function () {
-    return view('adminlte.laporan.laporan-pembayaran');
-})->name('laporan.laporan-pembayaran');
+//laporan data pembayaran
+Route::get('/laporan/laporan-pembayaran', 'UploadController@laporan')->name('laporan.laporan-pembayaran');
+Route::post('/laporan-pembayaran/report', 'UploadController@report');
 
-Route::get('/laporan/laporan-nilai', function () {
-    return view('adminlte.laporan.laporan-nilai');
-})->name('laporan.laporan-nilai');
+//laporan data absensi
+
+Route::get('/laporan/laporan-absensi', 'AbsenController@laporan')->name('laporan.laporan-absensi');
+Route::post('/laporan-absensi/report', 'AbsenController@report');
+
 
 
 //menjalankan controller jadwal
