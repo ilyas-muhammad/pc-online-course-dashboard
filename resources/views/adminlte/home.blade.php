@@ -14,7 +14,7 @@
         </div>
         @endif
 
-        {{ __('Selamat Datang!') }}
+        {{ __('Selamat Datang di Sistem Informasi Administrasi Bimbingan Belajar!') }}
     </div>
 </div>
 @endsection

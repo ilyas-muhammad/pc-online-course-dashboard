@@ -18,8 +18,10 @@
 <div class="form-group">
 </div>
 
+
 <a href="/siswa/tambah"> 
 <input class="btn btn-primary ml-3" type="submit" value="Tambah Siswa Baru"> </a>
+
 <br/>
 <br/>
 
@@ -78,12 +80,14 @@
                             </i>
                             Edit
                         </a>
+                    
                         <a class="btn btn-danger btn-sm" href="siswa/hapus/{{ $s->id}}">
                             <i class="fas fa-trash">
                             </i>
                             Delete
                         </a>
                     </td>
+                 
                 </tr>
                 </tr>
             </tbody>

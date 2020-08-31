@@ -64,7 +64,7 @@
                             </i>
                             Edit
                         </a>
-                        <a class="btn btn-danger btn-sm" href="users/edit/{{$u->id}}">
+                        <a class="btn btn-danger btn-sm" href="users/hapus/{{$u->id}}">
                             <i class="fas fa-trash">
                             </i>
                             Delete

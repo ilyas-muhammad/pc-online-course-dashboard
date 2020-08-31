@@ -31,10 +31,13 @@
 <form action="/siswa/store" method="POST" >
     {{ csrf_field()}}
     <div class="form-group">
-        <label for="name">*Name</label>
-        <input class="form-control" type="text" name="name" value="{{ old ('name') }}">
+        <label for="name">*Name</label><br />
+        <select name="name">
+        @foreach($siswa as $s)
+                <option value="{{ $s->id_users }}">{{ $s->name }}</option>
+            @endforeach
+        </select>
     </div> 
-  
     <div class="form-group">
         <label for="email">*Email</label>
         <input class="form-control" type="text" name="email" value="{{ old ('email') }}">

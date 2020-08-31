@@ -1,22 +1,33 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\Auth;
 use PDF;
 use App\Exports\SiswaExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class SiswaController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
     public function index()
     {
-    //mengambil data dari tabel  siswa
-    $siswa = DB::table('siswa')->get();
+        $usersId = Auth::id();
+        $users = Auth::user();
 
+
+    //mengambil data dari tabel  siswa
+    $siswa = DB::table('siswa')->where('id_users', $usersId)->get();
+
+    if ($users->level == 1) { //admin
+        $siswa = DB::table('siswa')->get(); // get semua data
+    }
     //mengirim data siswa ke view siswa
-    return view ('siswa', ['siswa' => $siswa]);
+    return view ('siswa', ['siswa' => $siswa, 'users' => $users]);
     }
 
     public function laporan()
@@ -55,8 +66,10 @@ class SiswaController extends Controller
 
     public function tambah()
     {
+
+        $siswa = DB::table('siswa')->get();
         //memanggil view tambah
-        return view ('tambah-siswa');
+        return view ('tambah-siswa', ['siswa' => $siswa]);
     }
     public function store(Request $request)
     {
