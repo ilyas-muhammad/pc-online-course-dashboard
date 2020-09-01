@@ -106,7 +106,9 @@ Route::get('/users/hapus/{params}', 'UserController@hapus');
 Route::get('/upload',  'UploadController@upload')->name('upload');
 Route::get('/upload/tambah', 'UploadController@tambah');
 Route::post('/upload/proses', 'UploadController@process_upload');
-
+//print
+Route::get('/upload/print-pdf/{kelas}', 'UploadController@printPDF');
+Route::get('/upload/print-excel/{kelas}', 'UploadController@printExcel');
 
 
 //menjalankan controller bank

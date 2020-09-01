@@ -27,6 +27,7 @@ table tr th{
     <tr>
                     <th>Nama Siswa</th>
                     <th>ID User</th>
+                    <th>Kelas</th>
                     <th>Nama Bank</th>
                     <th>No Rekening</th>
                     <th>Tanggal Pembayaran</th>
@@ -39,6 +40,7 @@ table tr th{
                 <tr>
                 <td>{{$g -> name }} </td>
                 <td>{{$g -> id_user }} </td>
+                <td>{{$g -> kelas }} </td>
                 <td>{{$g -> nama_bank}} </td>
                 <td>{{$g -> no_rekening}} </td>
                 <td>{{$g -> tgl_pembayaran }} </td>

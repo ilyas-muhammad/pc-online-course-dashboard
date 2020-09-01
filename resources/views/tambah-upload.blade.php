@@ -37,6 +37,11 @@
             </div>
             
             <div class="form-group">
+                <b> Kelas</b><br/>
+                <input type="text" name="kelas" class="form-control input-lg" />
+            </div>
+
+            <div class="form-group">
                 <b> Nama Bank</b><br/>
                 <input type="text" name="nama_bank" class="form-control input-lg" />
             </div>

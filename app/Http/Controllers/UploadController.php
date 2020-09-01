@@ -33,10 +33,10 @@ class UploadController extends Controller
     public function laporan()
     {
         //mengambil data dari tabel  siswa
-        $abc = DB::table('galeries')->get();
+        $gambar = DB::table('galeries')->get();
 
         //mengirim data siswa ke view siswa
-        return view('adminlte.laporan.laporan-pembayaran', ['gambar' => $abc]);
+        return view('adminlte.laporan.laporan-pembayaran', ['gambar' => $gambar]);
     }
 
 public function report(Request $request)
@@ -73,6 +73,7 @@ public function cari (Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
+            'kelas' => 'required',
             'nama_bank' => 'required',
             'no_rekening' => 'required',
             'jml_transfer' => 'required',
@@ -91,6 +92,7 @@ public function cari (Request $request)
         Galery::create([
             'name' => $request->name,
             'id_user' => $userId,
+            'kelas' => $request->kelas,
             'nama_bank' => $request->nama_bank,
             'no_rekening' => $request->no_rekening,
             'jml_transfer' => $request->jml_transfer,
