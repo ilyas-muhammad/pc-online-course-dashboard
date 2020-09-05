@@ -18,9 +18,10 @@
 <div class="form-group">
 </div>
 
-
+@if ($users->level == 1)
 <a href="/siswa/tambah"> 
 <input class="btn btn-primary ml-3" type="submit" value="Tambah Siswa Baru"> </a>
+@endif
 
 <br/>
 <br/>
@@ -35,9 +36,7 @@
     <br/>
     
   
-    <a href="/siswa/print-pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
-    <a href="/siswa/print-excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
-
+   
     <br /><br />
     
         <table id="example1" class="table table-bordered table-hover projects">
@@ -80,14 +79,14 @@
                             </i>
                             Edit
                         </a>
-                    
+                        @if ($users->level == 1)
                         <a class="btn btn-danger btn-sm" href="siswa/hapus/{{ $s->id}}">
                             <i class="fas fa-trash">
                             </i>
                             Delete
                         </a>
                     </td>
-                 
+                 @endif
                 </tr>
                 </tr>
             </tbody>
