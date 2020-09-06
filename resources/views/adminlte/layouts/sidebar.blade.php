@@ -23,19 +23,21 @@
                 <li class="nav-item">
                     <a href="{{ route('jadwal') }}" class="nav-link">
                     <i class="nav-icon fa fa-calendar"></i>
-                        <p> Jadwal </p>
+                        <p> Jadwal Siswa </p>
                     </a>
                 </li>
+              
                 <li class="nav-item">
                     <a href="{{ route('absen') }}" class="nav-link">
                         <i class="nav-icon far fa-calendar-check"></i>
                         <p> Absensi  </p>
                     </a>
                 </li>
+             
                 <li class="nav-item">
                     <a href="{{ route('siswa') }}" class="nav-link">
                     <i class="nav-icon fa fa-users"></i>
-                        <p> Siswa </p>
+                        <p> Data Siswa </p>
                     </a>
                 </li>
 

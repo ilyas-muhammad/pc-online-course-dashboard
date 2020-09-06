@@ -17,9 +17,10 @@
 
 <div class="form-group">
 </div>
-
+@if ($user->level == 1)
 <a href="/jadwal/tambah"> 
 <input class="btn btn-primary ml-3" type="submit" value="Tambah Jadwal Baru"> </a>
+@endif
 <br/>
 <br/>
 <div class="card-body">
@@ -70,7 +71,7 @@
                     
                   @if ($user->level == 1)
                     <td class="project-actions text-right">
-                
+            
                         <a class="btn btn-info btn-sm" href="jadwal/edit/{{$j->id}}">
                             <i class="fas fa-pencil-alt">
                             </i>

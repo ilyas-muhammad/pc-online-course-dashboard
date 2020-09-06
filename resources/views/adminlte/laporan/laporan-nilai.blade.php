@@ -32,12 +32,9 @@
             <option value="11">11</option>
             <option value="12">12</option>
         </select>
-        <input class="btn btn-primary ml-3" type="submit" value="Tampilkan"><br/><br/>
-
-        
         <br/>
-        <label>Tanggal : </label>
-        <input type="date" name="tanggal" />
+        <label> &nbsp; Tanggal : &nbsp;</label>
+        <input type="date" name="tgl_evaluasi" />
         <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
     </form>
     <br/>

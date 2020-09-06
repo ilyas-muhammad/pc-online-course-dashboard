@@ -32,7 +32,6 @@
             <option value="11">11</option>
             <option value="12">12</option>
         </select>
-        <input type="date" name="tanggalblbabla" />
         <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
     </form>
     <br/>

@@ -123,12 +123,12 @@ public function tambah()
     return redirect('/nilai');
 }
 
-    public function printPDF($kelas)
+    public function printPDF($kelas, $tgl_evaluasi)
     {
         $nilai = DB::table('nilai')->get();
 
         if ($kelas !== 'nofilter') {
-            $nilai = DB::table('nilai')->where('kelas', 'like', "%".$kelas."%")->get();
+            $nilai = DB::table('nilai')->where('kelas', 'tgl_evaluasi', 'like', "%".$kelas."%")->get();
         }
 
         $pdf = PDF::loadview('nilai-pdf', ['nilai' => $nilai]);
@@ -136,12 +136,12 @@ public function tambah()
 
     }
 
-    public function printExcel($kelas)
+    public function printExcel($kelas, $tgl_evaluasi)
     {
         $nilai = DB::table('nilai')->get();
         
         if ($kelas !== 'nofilter') {
-            $nilai = DB::table('nilai')->where('kelas', 'like', "%".$kelas."%")->get();
+            $nilai = DB::table('nilai')->where('kelas', 'tgl_evaluasi', 'like', "%".$kelas."%")->get();
         }
 
         return Excel::download($nilai, 'data-nilai.xls');

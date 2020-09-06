@@ -33,8 +33,6 @@
             <option value="11">11</option>
             <option value="12">12</option>
         </select>
-        <input class="btn btn-primary ml-3" type="submit" value="Tampilkan"><br/><br/>
-
         
         <br/>
         <label>Tanggal : </label>
@@ -53,6 +51,7 @@
         <tr>
             <th>Nama Siswa</th>
             <th>ID User</th>
+            <th>Kelas</th>
             <th>Nama Bank</th>
             <th>No Rekening</th>
             <th>Tanggal Pembayaran</th>
@@ -68,6 +67,7 @@
         <tr>
         <td>{{$g -> name }} </td>
         <td>{{$g -> id_user }} </td>
+        <td>{{$g -> kelas }} </td>
         <td>{{$g -> nama_bank}} </td>
         <td>{{$g -> no_rekening}} </td>
         <td>{{$g -> tgl_pembayaran }} </td>

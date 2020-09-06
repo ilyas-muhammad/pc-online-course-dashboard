@@ -44,7 +44,7 @@ public function report(Request $request)
     $kelas = $request->kelas;
 
     //mengambil data dari tabel  siswa
-    $galeries = DB::table('galeries')
+    $gambar = DB::table('galeries')
     ->where('kelas','like',"%" .$kelas."%")
     ->get();
 
@@ -57,7 +57,7 @@ public function cari (Request $request)
 {
     $cari = $request->cari;
 
-    $galeries = DB::table('galeries')
+    $gambar = DB::table('galeries')
     ->where('name','like',"%" .$cari."%")
     ->paginate();
 
@@ -143,25 +143,25 @@ public function cari (Request $request)
     }
     public function printPDF($kelas)
     {
-        $galeries = DB::table('galeries')->get();
+        $gambar = DB::table('galeries')->get();
         
-        if ($kelas) {
+        if ($kelas !== 'nofilter') {
             $siswa = DB::table('galeries')->where('kelas', 'like', "%".$kelas."%")->get();
         }
         
-        $pdf = PDF::loadview('pembayaran-pdf', ['galeries' => $galeries]);
+        $pdf = PDF::loadview('upload-pdf', ['galeries' => $gambar]);
         return $pdf->download('data-pembayaran-pdf');
 
     }
 
     public function printExcel($kelas)
     {
-        $galeries = DB::table('galeries')->get();
+        $gambar = DB::table('galeries')->get();
         
         if ($kelas) {
             $siswa = DB::table('galeries')->where('kelas', 'like', "%".$kelas."%")->get();
         }
 
-        return Excel::download($galeries, 'data-pembayaran.xls');
+        return Excel::download($gambar, 'data-pembayaran.xls');
     }
 }
