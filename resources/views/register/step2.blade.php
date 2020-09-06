@@ -1,10 +1,7 @@
-@extends('auth.master')
+{{-- @extends('auth.master') --}}
 
-{{-- Title --}}
-@section('title', 'Step 2 - Register)
-
-
-    <h1>Step 1</h1>
+{{-- @section('content') --}}
+    <h1>Kelas dan Jadwal</h1>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -14,57 +11,32 @@
         </ul>
     </div>
     @endif
+     <form action="/register2" method="POST">
+        @csrf
+     {{-- <input type="number" name="level" class="form-controll" placeholder="Enter level" value="{{ session()->get('register.level') }}"> --}}
+        
+        <label for="kelas">Kelas</label>
+        <select name="kelas" value="{{ session()->get('register.kelas') }}" id="kelas">
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
 
-    <form action="/register2" method="POST">
-
-    <div class="form-group">
-</div>
-
-div class="card-body">
-        <table id="example1" class="table table-bordered table-hover projects">
-            <thead>
-                <tr>
-                    <th style="width: 10%">
-                        Nama Kelas
-                    </th>
-                    <th style="width: 10%">
-                        Hari
-                    </th>
-                    <th style="width: 10%">
-                        Ruangan
-                    </th>
-                    <th style="width: 10%">
-                        Jam Mulai
-                    </th>
-                    <th style="width: 10%">
-                        Jam Akhir
-                    </th>
-                    <th style="width: 20%">
-                        Actions
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach ($jadwal as $j)
-                <tr>
-                  <td> {{ $j-> nama_kelas}}</td>
-                  <td> {{ $j-> hari }}</td>
-                  <td> {{ $j-> ruang }}</td>
-                  <td> {{ $j-> waktu_mulai }}</td>
-                  <td> {{ $j-> waktu_akhir }}</td>
-                  td class="project-actions text-right">
-                
-                        <a class="btn btn-info btn-sm" href="/{{$j->id}}">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Pilih
-                        </a>
-                        </td>
-                </tr>
-                </tr>
-            </tbody>
+        <br />
+        <label for="jadwal">Jadwal</label>
+        <select name="id_jadwal" id="jadwal" value="{{ session()->get('register.jadwal') }}">
+            @foreach($jadwal ?? [] as $j)
+            <option value="{{ $j->id }}">{{ $j->hari }} | {{ $j->waktu_mulai }} s/d {{ $j->waktu_akhir }}</option>
             @endforeach
-        </table>
-    </div>
-</div>
-@endsection
+        </select>
+        </br>
+        <a type="button" href="/register1" class="btn btn-warning">Back to Step Informasi Diri</a>
+         <button type="submit" class="btn btn-primary">Continue</button>
+     </form>
+{{-- @endsection  --}}
