@@ -61,7 +61,7 @@
 
 @if (Route::has('register'))
 <p class="mb-0">
-    <a href="{{ route('register') }}" class="text-center">Daftar Akun Baru</a>
+    <a href="{{ route('signup') }}" class="text-center">Daftar Akun Baru</a>
 </p>
 @endif
 @endsection
