@@ -7,7 +7,7 @@ use App\Galery;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use PDF;
-use App\Exports\NilaiExport;
+use App\Exports\PembayaranExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UploadController extends Controller

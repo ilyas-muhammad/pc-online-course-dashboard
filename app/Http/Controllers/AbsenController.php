@@ -9,6 +9,10 @@ use DateTimeZone;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PDF;
+use App\Exports\AbsenExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class AbsenController extends Controller
 {
@@ -53,6 +57,30 @@ class AbsenController extends Controller
         return view('absen', ['siswa' => $siswa, 'jadwal' => $jadwal, 'absen' => $allAbsen]);
     }
 
+    public function laporan()
+    {
+    //mengambil data dari tabel  siswa
+    $absen = DB::table('absen')->get();
+
+    //mengirim data siswa ke view siswa
+    return view('adminlte.laporan.laporan-absensi', ['absen' => $absen]);
+
+    }
+
+    public function report(Request $request)
+    {
+        $kelas = $request->kelas;
+
+        //mengambil data dari tabel  siswa
+        $absen = DB::table('absen')
+        ->where('kelas','like',"%" .$kelas."%")
+        ->get();
+
+        //mengirim data siswa ke view siswa
+        return view('adminlte.laporan.laporan-absensi', ['absen' => $absen, 'kelas' => $kelas]);
+    }
+
+
     public function absen($id_siswa, $id_jadwal)
     {
         $now = new DateTime();
@@ -67,5 +95,23 @@ class AbsenController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function printPDF($kelas)
+    {
+        $absen = DB::table('absen')->get();
+        
+        if ($kelas !== 'nofilter') {
+            $absen = DB::table('absen')->where('kelas', 'like', "%".$kelas."%")->get();
+        }
+        
+        $pdf = PDF::loadview('absen-pdf', ['absen' => $absen]);
+        return $pdf->download('data-absen-pdf');
+
+    }
+
+    public function printExcel($kelas)
+    {
+        return Excel::download(new SiswaExport($kelas), 'data-absen.xls');
     }
 }

@@ -2,16 +2,32 @@
 
 namespace App\Exports;
 
+use Illuminate\Support\Facades\DB;
 use App\Absen;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\Exportable;
 
-class AbsenExport implements FromCollection
+class AbsenExport implements FromQuery
 {
+    use Exportable;
+
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function collection()
+
+    public function __construct(string $kelas)
     {
-        return Absen::all();
+        $this->kelas = $kelas;
+    }
+
+    public function query()
+    {
+        $absen = Absen::query();
+
+        if ($this->kelas !== 'nofilter') {
+            $absen = Absen::query()->where('kelas', 'like', "%".$this->kelas."%");
+        }
+
+        return $absen;
     }
 }

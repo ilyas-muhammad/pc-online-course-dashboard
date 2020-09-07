@@ -142,6 +142,9 @@ Route::get('/data', 'RegisterController@index');
 //menjalankan controller absensi
 Route::get('/absen', 'AbsenController@index')->name('absen');
 Route::get('/present/{ids}/{idj}', 'AbsenController@absen');
+//cetak nilai siswa
+Route::get('/absen/print-pdf/{params}', 'AbsenController@printPDF');
+Route::get('/absen/print-excel/{params}', 'AbsenController@printExcel');
 
 //menjalankan controller evaluasi
 Route::get('/evaluasi', 'EvaluasiController@index')->name('evaluasi');
