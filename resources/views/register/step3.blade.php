@@ -1,7 +1,9 @@
 {{-- @extends('auth.master') --}}
 
 {{-- @section('content') --}}
-    <h1>Step 1</h1>
+<h1>BIMBEL AN - NAJM PRESTASI </h1>
+    <img src="/images/logo.jpg" />
+    <p> Silahkan Konfirmasi Pembayaran Anda! </p>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

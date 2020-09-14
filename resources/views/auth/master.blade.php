@@ -25,9 +25,11 @@
     <div class="login-logo">
       <a href="#"><b>Bimbel An-Najm Prestasi</b></a>
     </div>
+         
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
+            <img src="/images/logo.jpg" />
         @yield('auth-content')
       </div>
       <!-- /.login-card-body -->

@@ -1,7 +1,9 @@
 {{-- @extends('auth.master') --}}
 
 {{-- @section('content') --}}
-    <h1>Kelas dan Jadwal</h1>
+<h1>BIMBEL AN - NAJM PRESTASI </h1>
+    <img src="/images/logo.jpg" />
+    <p> Silahkan Pilih Jadwal dan Kelas </p>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -15,6 +17,8 @@
         @csrf
      {{-- <input type="number" name="level" class="form-controll" placeholder="Enter level" value="{{ session()->get('register.level') }}"> --}}
         
+     <div class="form-group">
+       
         <label for="kelas">Kelas</label>
         <select name="kelas" value="{{ session()->get('register.kelas') }}" id="kelas">
             <option value="4">4</option>
@@ -27,7 +31,7 @@
             <option value="11">11</option>
             <option value="12">12</option>
         </select>
-
+</div>
         <br />
         <label for="jadwal">Jadwal</label>
         <select name="id_jadwal" id="jadwal" value="{{ session()->get('register.jadwal') }}">
