@@ -1,6 +1,6 @@
 @extends('auth.master')
 
-<body style ="background-color:pink;">
+<body style ="background-color:light-blue;">
 
 
 

@@ -20,7 +20,9 @@
     {{ csrf_field()}}
     <input type="hidden" name="id" value="{{ $j->id}}"> <br/>
 
-  
+   
+
+    <div class="form-group">
     Nama Kelas : <input type="text"  required="required" name="nama_kelas" value="{{ $j-> nama_kelas}}"> <br/><br/>
     Hari     : <input type="text"  required="required" name="hari" value="{{ $j-> hari}}"> <br/><br/>
     Maksimal Siswa  : <input type="text"  required="required" name="max_siswa" value="{{ $j-> max_siswa}}"> <br/><br/>
