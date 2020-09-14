@@ -36,10 +36,12 @@
         <label> &nbsp; Tanggal : &nbsp;</label>
         <input type="date" name="tgl_evaluasi" />
         <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
+        
     </form>
     <br/>
 
 <a href="/nilai/print-pdf/{{ $kelas ?? 'nofilter' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
+
  <a href="/nilai/print-excel/{{ $kelas ?? 'nofilter' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
     

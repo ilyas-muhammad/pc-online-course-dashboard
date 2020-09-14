@@ -72,7 +72,7 @@
                 <li class="nav-item">
                     <a href="{{ route('users') }}" class="nav-link">
                     <i class="nav-icon fa fa-user"></i>
-                        <p> User </p>
+                        <p>Data User </p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -86,7 +86,7 @@
                         <li class="nav-header">Laporan</li>
                         <li class="nav-item has-treeview">
                          <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+                         <i class='nav-icon far fa-folder-open'></i>
                         <p>
                             LAPORAN
                             <i class="fas fa-angle-left right"></i>

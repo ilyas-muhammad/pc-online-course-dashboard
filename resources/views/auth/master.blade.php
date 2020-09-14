@@ -29,7 +29,7 @@
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
-            <img src="/images/logo.jpg" />
+            <img src="/images/logo.jpg" class="mx-auto d-block"/>
         @yield('auth-content')
       </div>
       <!-- /.login-card-body -->
