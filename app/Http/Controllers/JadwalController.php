@@ -22,8 +22,17 @@ class JadwalController extends Controller
 
         if ($user->level == 1) { //admin
             $jadwal = Jadwal::get(); // get semua data
+        } else {
+            $siswa = Siswa::where('id_users', $userId)
+            ->leftJoin('jadwal', 'siswa.id_jadwal', '=', 'jadwal.id')
+            ->select('*')
+            ->first();
+
+            $jadwal = $siswa->jadwal;
+            $jadwal['siswa'] = array($siswa);
         }
 
+        // var_dump(json_encode($jadwal)); die();
         return view ('jadwal', ['jadwal' => $jadwal, 'user' => $user]);
     }
 
@@ -59,18 +68,19 @@ class JadwalController extends Controller
             'nama_kelas' => 'required',
             'hari' => 'required',
             'max_siswa' => 'required',
+            'waktu_mulai' => 'required',
+            'waktu_akhir' => 'required',
         ], $pesan);
 
 
         //insert data ke table jadwal
-
-      
         
         $jadwal = Jadwal::create([
             'nama_kelas' => $request['nama_kelas'],
             'hari' => $request['hari'],
             'max_siswa' => $request['max_siswa'],
-            
+            'waktu_mulai' => $request['waktu_mulai'],
+            'waktu_akhir' => $request['waktu_akhir'],
         ]);
 
        

@@ -41,6 +41,16 @@
     </div> 
 
     <div class="form-group">
+        <label for="waktu_mulai">*Waktu Mulai</label>
+        <input class="form-control" type="time" name="waktu_mulai" value="{{ old ('waktu_mulai') }}">
+    </div> 
+
+    <div class="form-group">
+        <label for="waktu_akhir">*Waktu Akhir</label>
+        <input class="form-control" type="time" name="waktu_akhir" value="{{ old ('waktu_akhir') }}">
+    </div> 
+
+    <div class="form-group">
         <label for="max_siswa">*Maksimal Siswa</label>
         <input class="form-control" type="text" name="max_siswa" value="{{ old ('max_siswa') }}">
     </div> 

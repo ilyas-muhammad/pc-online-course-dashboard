@@ -25,6 +25,8 @@
     <div class="form-group">
     Nama Kelas : <input type="text"  required="required" name="nama_kelas" value="{{ $j-> nama_kelas}}"> <br/><br/>
     Hari     : <input type="text"  required="required" name="hari" value="{{ $j-> hari}}"> <br/><br/>
+    Waktu Mulai     : <input type="time"  required="required" name="waktu_mulai" value="{{ $j-> waktu_mulai}}"> <br/><br/>
+    Waktu Akhir     : <input type="time"  required="required" name="waktu_akhir" value="{{ $j-> waktu_akhir}}"> <br/><br/>
     Maksimal Siswa  : <input type="text"  required="required" name="max_siswa" value="{{ $j-> max_siswa}}"> <br/><br/>
    
 

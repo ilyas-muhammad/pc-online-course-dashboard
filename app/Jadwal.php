@@ -10,7 +10,7 @@ class Jadwal extends Model
     protected $table = "jadwal";
 
     protected $fillable = [
-        'nama_kelas', 'hari', 'max_siswa',
+        'nama_kelas', 'hari', 'max_siswa', 'waktu_mulai', 'waktu_akhir'
     ];
 
     public function siswa()

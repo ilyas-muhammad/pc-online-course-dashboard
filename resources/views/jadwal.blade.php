@@ -39,11 +39,17 @@
                     <th style="width: 20%">
                         Nama Siswa
                     </th>
-                    <th style="width: 20%">
+                    <th style="width: 10%">
                         Nama Kelas
                     </th>
                     <th style="width: 10%">
                         Hari
+                    </th>
+                    <th style="width: 10%">
+                        Waktu Mulai
+                    </th>
+                    <th style="width: 10%">
+                        Waktu Akhir
                     </th>
                     <th style="width: 10%">
                         Maksimal Siswa
@@ -61,11 +67,14 @@
             @foreach ($jadwal as $j)
                 <tr>
                  <td> @foreach($j->siswa as $s)
-                                {{ $s->name }}<br /> 
-                                @endforeach</td>
+                        <li>{{ $s->name }}</li>
+                    @endforeach
+                </td>
                   <td> {{ $j-> nama_kelas}}</td>
     
-                  <td> {{ $j-> hari}}</td>          
+                  <td> {{ $j-> hari}}</td>  
+                  <td> {{ $j-> waktu_mulai }}</td> 
+                  <td> {{ $j-> waktu_akhir }}</td>      
                   <td> {{ $j-> max_siswa }}</td>
 
                     
