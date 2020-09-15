@@ -23,16 +23,13 @@ class JadwalController extends Controller
         if ($user->level == 1) { //admin
             $jadwal = Jadwal::get(); // get semua data
         } else {
-            $siswa = Siswa::where('id_users', $userId)
-            ->leftJoin('jadwal', 'siswa.id_jadwal', '=', 'jadwal.id')
-            ->select('*')
-            ->first();
+            $siswa = Siswa::where('id_users', $userId)->first();
 
-            $jadwal = $siswa->jadwal;
+            $jadwal = Jadwal::where('id', $siswa->id_jadwal)->first();
             $jadwal['siswa'] = array($siswa);
+            $jadwal = array($jadwal);
         }
 
-        // var_dump(json_encode($jadwal)); die();
         return view ('jadwal', ['jadwal' => $jadwal, 'user' => $user]);
     }
 

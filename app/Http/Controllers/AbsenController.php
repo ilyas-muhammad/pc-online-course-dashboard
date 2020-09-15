@@ -60,7 +60,9 @@ class AbsenController extends Controller
     public function laporan()
     {
     //mengambil data dari tabel  siswa
-    $absen = DB::table('absen')->get();
+    $absen = DB::table('siswa')->get();
+
+    var_dump(json_encode($absen)); die();
 
     //mengirim data siswa ke view siswa
     return view('adminlte.laporan.laporan-absensi', ['absen' => $absen]);

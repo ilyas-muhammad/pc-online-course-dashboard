@@ -27,12 +27,15 @@
                     </a>
                 </li>
               
+                
+                @if (Auth::user()->level == 2)
                 <li class="nav-item">
                     <a href="{{ route('absen') }}" class="nav-link">
                         <i class="nav-icon far fa-calendar-check"></i>
                         <p> Absensi  </p>
                     </a>
                 </li>
+                @endif
              
                 <li class="nav-item">
                     <a href="{{ route('siswa') }}" class="nav-link">
@@ -42,12 +45,14 @@
                 </li>
 
                 </li>
+                @if (Auth::user()->level == 1)
                 <li class="nav-item">
                     <a href="{{ route('bank') }}" class="nav-link">
                     <i class="nav-icon fa fa-credit-card"></i>
                         <p> Akun Bank </p>
                     </a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{ route('evaluasi') }}" class="nav-link">
                         <i class="nav-icon far fa-newspaper"></i>
@@ -55,34 +60,33 @@
                     </a>
                 </li>
 
+                
+                @if (Auth::user()->level == 1)
                 <li class="nav-item">
                     <a href="{{ route('nilai') }}" class="nav-link">
                         <i class="nav-icon far fa-file-alt"></i>
                         <p> Data Nilai Siswa </p>
                     </a>
                 </li>
-                
+                @endif
+
                 <li class="nav-item">
                     <a href="{{ route('upload') }}" class="nav-link">
                     <i class="nav-icon fa fa-credit-card"></i>
                         <p> Konfirmasi Pembayaran </p>
                     </a>
                 </li>
-
+                
+                @if (Auth::user()->level == 1)
                 <li class="nav-item">
                     <a href="{{ route('users') }}" class="nav-link">
                     <i class="nav-icon fa fa-user"></i>
                         <p>Data User </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('blank-page') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
-                        <p> Blank Page </p>
-                    </a>
-                </li>
-        
-
+                @endif
+                
+                @if (Auth::user()->level == 1)
                         <li class="nav-header">Laporan</li>
                         <li class="nav-item has-treeview">
                          <a href="#" class="nav-link">
@@ -120,6 +124,7 @@
                         </li>
                     </ul>
                 </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -23,6 +23,7 @@
         {{ csrf_field() }}
         <label>Kelas : </label>
         <select name="kelas">
+            <option value="nofilter">Pilih Kelas</option>
             <option value="4">4</option>
             <option value="5">5</option>
             <option value="6">6</option>
@@ -36,13 +37,13 @@
         
         <br/>
         <label>Tanggal : </label>
-        <input type="date" name="tanggalblbabla" />
+        <input type="date" name="tanggal" />
         <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
     </form>
     <br/>
 
-    <a href="/upload/print-pdf/{{ $kelas ?? '' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
-    <a href="/upload/print-excel/{{ $kelas ?? '' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+    <a href="/upload/print-pdf/{{ $kelas ?? 'nofilter' }}/{{ $date ?? 'nodate'}}" class="btn btn-primary" target="_blank">PRINT PDF</a>
+    <a href="/upload/print-excel/{{ $kelas ?? 'nofilter' }}/{{ $date ?? 'nodate'}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
     
 

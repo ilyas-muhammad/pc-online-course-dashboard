@@ -42,14 +42,23 @@ class UploadController extends Controller
 public function report(Request $request)
 {
     $kelas = $request->kelas;
+    $tanggal = $request->tanggal;
 
     //mengambil data dari tabel  siswa
-    $gambar = DB::table('galeries')
-    ->where('kelas','like',"%" .$kelas."%")
-    ->get();
+    $query = Galery::query();
+    if ($kelas != 'nofilter') {
+        $query->where('kelas', $kelas);
+    }
 
+    if ($tanggal) {
+        $query->where('tgl_pembayaran', $tanggal);
+    }
+    
+    $gambar = $query->get();
+
+    // var_dump($gambar);die();
     //mengirim data siswa ke view siswa
-    return view('adminlte.laporan.laporan-pembayaran', ['gambar' => $gambar, 'kelas' => $kelas]);
+    return view('adminlte.laporan.laporan-pembayaran', ['gambar' => $gambar, 'kelas' => $kelas, 'date' => $tanggal]);
 }
 
 
@@ -141,15 +150,20 @@ public function cari (Request $request)
         return redirect()->back();
 
     }
-    public function printPDF($kelas)
+    public function printPDF($kelas, $tanggal)
     {
-        $gambar = DB::table('galeries')->get();
-        
-        if ($kelas !== 'nofilter') {
-            $siswa = DB::table('galeries')->where('kelas', 'like', "%".$kelas."%")->get();
+        //mengambil data dari tabel  siswa
+        $gambar = Galery::get();
+        if ($kelas != 'nofilter') {
+            $gambar = Galery::where('kelas', $kelas)->get();
         }
+    
+        // if ($tanggal != 'nodate') {
+        //     $query->where('tgl_pembayaran', $tanggal);
+        // }
         
-        $pdf = PDF::loadview('upload-pdf', ['galeries' => $gambar]);
+        $pdf = PDF::loadview('upload-pdf', ['gambar' => $gambar]);
+        // var_dump($pdf); die();
         return $pdf->download('data-pembayaran-pdf');
 
     }

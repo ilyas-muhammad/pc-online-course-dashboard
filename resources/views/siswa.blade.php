@@ -39,7 +39,7 @@
    
     <br /><br />
     
-        <table id="example1" class="table table-bordered table-hover projects">
+        <table id="siswatbl" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
                     <th style="width: 20%">
@@ -105,7 +105,7 @@
 
 <script>
     $(function () {
-      $("#example1").DataTable({
+      $("#siswatbl").DataTable({
         "columnDefs": [
             { "width": "10%", "targets": -1 }
         ]

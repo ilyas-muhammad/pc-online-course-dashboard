@@ -45,31 +45,23 @@
                 <tr>
                     <th>Nama Siswa</th>
                     <th>Kelas</th>
-                    <th>Hari</th>
-                    <th>Waktu Mulai</th>
-                    <th>Waktu Selesai</th>
                     <th>Status</th>
-                    <th>Jam Absen</th>
+                    <th>Waktu Absen</th>
+                    <th>Action</th>
                  
                 </tr>
             </thead>
 
             <tbody>
+                @foreach($absen as $a)
                 <tr>
-                    @foreach($jadwal as $idx => $j)
-                <td> {{ $siswa->name }} </td>
-                <td> {{ $siswa->kelas }} </td>
-                <td>{{ $j->hari }}</td>
-                <td>{{ $j->waktu_mulai }}</td>
-                <td>{{ $j->waktu_akhir }}</td>
-                <td>{{ $absen[$idx]->status ?? '' }}</td>
-                <td>{{ $absen[$idx]->waktu_absen ?? '' }}</td>
-               
-                
-            
-            </td>
-            @endforeach
+                <td> {{ $a->name }} </td>
+                <td> {{ $a->kelas }} </td>
+                <td> {{ $a->kelas }} </td>
+                <td> {{ $a->kelas }} </td>
+                <td> {{ $a->kelas }} </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
         </div>

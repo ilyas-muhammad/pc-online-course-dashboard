@@ -4,9 +4,6 @@
 
 
 <title> Print Data Siswa</title>
-<link rel="stylesheet" href="https:/.stackpath.bootstrapcdn.com/botstrap/4.3.1/css/bostrap.min.css"
-integrity="sha384-ggOyr0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhxWr7x9JvoRxT2MZw1T"
-crossorigin="anonymous">
 
 </head>
 <body>
@@ -24,7 +21,7 @@ table tr th{
 
     
 
-<table border="1.5" class=table table-bordered">
+<table border="1.5">
 
 <tr>
 

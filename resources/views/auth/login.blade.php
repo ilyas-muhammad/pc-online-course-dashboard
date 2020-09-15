@@ -53,11 +53,11 @@
     </div>
 </form>
 
-@if (Route::has('password.request'))
+{{-- @if (Route::has('password.request'))
 <p class="mb-1 mt-3">
     <a href="{{ route('password.request') }}">Lupa Password</a>
 </p>
-@endif
+@endif --}}
 
 @if (Route::has('register'))
 <p class="mb-0">
