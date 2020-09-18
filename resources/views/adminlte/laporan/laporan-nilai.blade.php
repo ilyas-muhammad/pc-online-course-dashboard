@@ -33,16 +33,16 @@
             <option value="12">12</option>
         </select>
         <br/>
-        <label> &nbsp; Tanggal : &nbsp;</label>
+        
+        <label>Tanggal : </label>
         <input type="date" name="tgl_evaluasi" />
         <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
         
     </form>
     <br/>
 
-<a href="/nilai/print-pdf/{{ $kelas ?? 'nofilter' }}" class="btn btn-primary" target="_blank">PRINT PDF</a>
-
- <a href="/nilai/print-excel/{{ $kelas ?? 'nofilter' }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+    <a href="/nilai/print-pdf/{{ $kelas ?? 'nofilter' }}/{{ $date ?? 'nodate'}}" class="btn btn-primary" target="_blank">PRINT PDF</a>
+    <a href="/nilai/print-excel/{{ $kelas ?? 'nofilter' }}/{{ $date ?? 'nodate'}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
     
         <table id="example1" class="table table-bordered table-hover projects">

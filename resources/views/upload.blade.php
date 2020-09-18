@@ -10,11 +10,11 @@
 @endpush
 
 @section('content')
-<div class="row">
-<div class="container">
-    <div class="col-lg-8 mx-auto my-5">
-    </div>
 
+<div class="card">
+
+       
+</div>
         @if (count($errors) > 0)
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)

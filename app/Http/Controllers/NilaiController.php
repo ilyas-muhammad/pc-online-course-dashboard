@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Nilai;
 use Illuminate\Support\Facades\DB; 
 use PDF;
 use App\Exports\NilaiExport;
@@ -32,11 +33,19 @@ return view('adminlte.laporan.laporan-nilai', ['nilai' => $nilai]);
 public function report(Request $request)
 {
     $kelas = $request->kelas;
+    $tanggal = $request->tanggal;
 
     //mengambil data dari tabel  siswa
-    $nilai = DB::table('nilai')
-    ->where('kelas','like',"%" .$kelas."%")
-    ->get();
+    $query = Nilai::query();
+    if ($kelas != 'nofilter') {
+        $query->where('kelas', $kelas);
+    }
+    if ($tanggal) {
+        $query->where('tgl_evaluasi', $tanggal);
+    }
+
+    $nilai = $query->get();
+  
 
     //mengirim data siswa ke view siswa
     return view('adminlte.laporan.laporan-nilai', ['nilai' => $nilai, 'kelas' => $kelas]);
@@ -123,12 +132,11 @@ public function tambah()
     return redirect('/nilai');
 }
 
-    public function printPDF($kelas, $tgl_evaluasi)
+    public function printPDF($kelas, $tanggal)
     {
-        $nilai = DB::table('nilai')->get();
-
-        if ($kelas !== 'nofilter') {
-            $nilai = DB::table('nilai')->where('kelas', 'tgl_evaluasi', 'like', "%".$kelas."%")->get();
+        $nilai = Nilai::get();
+        if ($kelas != 'nofilter') {
+            $nilai = Nilai::where('kelas', $kelas)->get();
         }
 
         $pdf = PDF::loadview('nilai-pdf', ['nilai' => $nilai]);

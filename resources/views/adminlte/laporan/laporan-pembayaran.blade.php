@@ -1,6 +1,6 @@
 @extends('adminlte.layouts.app')
 
-@section('title', 'KONFIRMASI PEMBAYARAN')
+@section('title', 'LAPORAN PEMBAYARAN SISWA')
 
 {{-- Custom CSS --}}
 @push('css')
@@ -10,14 +10,14 @@
 @endpush
 
 @section('content')
-<div class="row">
-<div class="container">
-    <div class="col-lg-8 mx-auto my-5">
-    </div>
-    <div class="card">
+
+@section('content')
+<div class="card">
     <div class="card-header">
-        <h3 class="card-title">Laporan Data Pembayaran Siswa</h3>
+        <h3 class="card-title">Data Pembayaran Siswa</h3>
 </div>
+
+
     <div class="card-body">
     <form action="{{ action('UploadController@report') }}" method="POST" class="form-inline">
         {{ csrf_field() }}
