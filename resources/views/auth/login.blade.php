@@ -1,10 +1,17 @@
 @extends('auth.master')
 
-<body style ="background-color:light-blue;">
 
 
 
+<div class="auth-box row">
+<div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(public/images/bg.jpg);">
+</div>
+<div class="col-lg-5 col-md-7 bg-pink">
+</div>
+</div>
 
+
+  
 
 {{-- Title --}}
 @section('title', "An-Najm Prestasi - Login")
