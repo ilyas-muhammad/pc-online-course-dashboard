@@ -1,6 +1,14 @@
 {{-- @extends('auth.master') --}}
 
+{{-- Custom CSS --}}
+@push('css')
+<!-- DataTables -->
+<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+@endpush
 {{-- @section('content') --}}
+
+
     <h1>BIMBEL AN - NAJM PRESTASI </h1>
     <img src="/images/logo.jpg" />
     <p> Silahkan Isi Data Diri Anda! </p>
@@ -46,3 +54,21 @@
         <input class="btn btn-primary ml-3" type="submit" value="Next">
      </form>
 {{-- @endsection  --}}
+
+@push('js')
+<!-- DataTables -->
+<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+
+<script>
+    $(function () {
+      $("#example1").DataTable({
+        "columnDefs": [
+            { "width": "10%", "targets": -1 }
+        ]
+      });
+    });
+</script>
+@endpush
