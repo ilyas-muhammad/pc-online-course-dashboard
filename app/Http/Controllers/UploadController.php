@@ -168,12 +168,12 @@ public function cari (Request $request)
 
     }
 
-    public function printExcel($kelas)
+    public function printExcel($kelas, $tanggal)
     {
         $gambar = DB::table('galeries')->get();
         
-        if ($kelas) {
-            $siswa = DB::table('galeries')->where('kelas', 'like', "%".$kelas."%")->get();
+        if ($kelas !== 'nofilter') {
+            $siswa = DB::table('galeries')->where('kelas', 'tgl_pembayaran', 'like', "%".$kelas."%")->get();
         }
 
         return Excel::download($gambar, 'data-pembayaran.xls');

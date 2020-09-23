@@ -5,14 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Nilai;
 use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\Auth;
 use PDF;
 use App\Exports\NilaiExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class NilaiController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
     public function index()
     {
+        $usersId = Auth::id();
+        $users = Auth::user();
+
     //mengambil data dari tabel  siswa
     $nilai = DB::table('nilai')->get();
 
@@ -35,7 +42,7 @@ public function report(Request $request)
     $kelas = $request->kelas;
     $tanggal = $request->tanggal;
 
-    //mengambil data dari tabel  siswa
+  
     $query = Nilai::query();
     if ($kelas != 'nofilter') {
         $query->where('kelas', $kelas);
@@ -46,9 +53,9 @@ public function report(Request $request)
 
     $nilai = $query->get();
   
-
+    // var_dump($nilai);die();
     //mengirim data siswa ke view siswa
-    return view('adminlte.laporan.laporan-nilai', ['nilai' => $nilai, 'kelas' => $kelas]);
+    return view('adminlte.laporan.laporan-nilai', ['nilai' => $nilai, 'kelas' => $kelas,  'date' => $tanggal]);
 }
 
 
@@ -144,7 +151,7 @@ public function tambah()
 
     }
 
-    public function printExcel($kelas, $tgl_evaluasi)
+    public function printExcel($kelas, $tanggal)
     {
         $nilai = DB::table('nilai')->get();
         

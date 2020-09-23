@@ -173,5 +173,5 @@ Route::post('/nilai/update', 'NilaiController@update');
 //hapus 
 Route::get('/nilai/hapus/{params}', 'NilaiController@hapus');
 //cetak nilai siswa
-Route::get('/nilai/print-pdf/{params}', 'NilaiController@printPDF');
-Route::get('/nilai/print-excel/{params}', 'NilaiController@printExcel');
+Route::get('/nilai/print-pdf/{kelas}/{tanggal}', 'NilaiController@printPDF');
+Route::get('/nilai/print-excel/{kelas}/{tanggal}', 'NilaiController@printExcel');

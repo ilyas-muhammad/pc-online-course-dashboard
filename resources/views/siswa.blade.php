@@ -18,10 +18,7 @@
 <div class="form-group">
 </div>
 
-@if ($users->level == 1)
-<a href="/siswa/tambah"> 
-<input class="btn btn-primary ml-3" type="submit" value="Tambah Siswa Baru"> </a>
-@endif
+
 
 <br/>
 <br/>

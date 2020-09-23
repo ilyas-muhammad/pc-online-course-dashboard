@@ -7,6 +7,7 @@
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+
 @endpush
 
 @section('content')
@@ -16,6 +17,10 @@
     <div class="card-header">
         <h3 class="card-title">Data Pembayaran Siswa</h3>
 </div>
+<div class="card-body">
+<div class="row">
+<div class="container">
+<div class="col-lg-12">
 
 
     <div class="card-body">
@@ -34,9 +39,9 @@
             <option value="11">11</option>
             <option value="12">12</option>
         </select>
-        
+
         <br/>
-        <label>Tanggal : </label>
+        <label>Tanggal : &nbsp;  </label>
         <input type="date" name="tanggal" />
         <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
     </form>

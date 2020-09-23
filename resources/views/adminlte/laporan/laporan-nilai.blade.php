@@ -17,11 +17,11 @@
 
 
 <div class="card-body">
-
 <form action="{{ action('NilaiController@report') }}" method="POST" class="form-inline">
         {{ csrf_field() }}
         <label>Kelas : </label>
         <select name="kelas">
+        <option value="nofilter">Pilih Kelas</option>
             <option value="4">4</option>
             <option value="5">5</option>
             <option value="6">6</option>
@@ -32,10 +32,11 @@
             <option value="11">11</option>
             <option value="12">12</option>
         </select>
+        
         <br/>
         
         <label>Tanggal : </label>
-        <input type="date" name="tgl_evaluasi" />
+        <input type="date" name="tanggal" />
         <input class="btn btn-primary ml-3" type="submit" value="Tampilkan">
         
     </form>

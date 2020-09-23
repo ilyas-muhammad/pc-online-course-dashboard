@@ -49,5 +49,5 @@ table tr th{
 @endforeach
 </table>
 </body>
-    
+</html>  
 
