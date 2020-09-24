@@ -16,9 +16,10 @@ class PembayaranExport implements FromQuery
     * @return \Illuminate\Support\Collection
     */
 
-    public function __construct(string $kelas)
+    public function __construct(string $kelas, string $tanggal)
     {
         $this->kelas = $kelas;
+        $this->tanggal = $tanggal;
     }
 
     public function query()
@@ -27,6 +28,12 @@ class PembayaranExport implements FromQuery
 
         if ($this->kelas !== 'nofilter') {
             $gambar = Galery::query()->where('kelas', 'like', "%".$this->kelas."%");
+        } else if ($this->tanggal !== 'nodate') {
+            $gambar = Galery::query()->where('tgl_pembayaran', $this->tanggal);
+        } else if ($this->kelas !== 'nofilter' && $this->tanggal !== 'nodate') {
+            $gambar = Galery::query()
+                ->where('tgl_pembayaran', $this->tanggal)
+                ->where('kelas', $this->kelas);
         }
 
         return $gambar;

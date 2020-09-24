@@ -19,33 +19,26 @@ table tr th{
 }
 </style>
 <center>
-    <h5> Data Nilai Siswa<h4>
+    <h5> Data Absensi Siswa<h4>
     </center>
 
-    <div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Data Nilai Siswa</h3>
-</div>
 
 <table border="1.5" class=table table-bordered">
 
 <tr>
 
     <th> Nama Siswa </th>
-    <th> Tanggal Evaluasi </th>
     <th> Kelas </th>
-    <th> Jenis Kelamin </th>
-    <th> Skor </th>
+    <th> Tanggal Absen </th>
+    <th> Keterangan </th>
 </tr>
-@foreach($nilai as $n)
+@foreach($absensi as $b)
 
 <tr> 
-    <td> {{ $n-> name}}</td>
-    <td> {{ $n-> tgl_evaluasi}}</td>
-    <td> {{ $n-> kelas}}</td>
-    <td> {{ $n-> jenkel}}</td>
-    <td> {{ $n-> skor}}</td>
-    
+    <td> {{ $b-> name}}</td>
+    <td> {{ $b-> kelas}}</td>
+    <td> {{ $b-> tgl_absen}}</td>
+    <td> {{ $b-> keterangan}}</td>
    
 </tr>
 @endforeach

@@ -3,14 +3,13 @@
 namespace App\Exports;
 
 use Illuminate\Support\Facades\DB;
-use App\Nilai;
+use App\Absensi;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
 
-class NilaiExport implements FromQuery
+class AbsensiExport implements FromQuery
 {
     use Exportable;
-
     /**
     * @return \Illuminate\Support\Collection
     */
@@ -21,20 +20,21 @@ class NilaiExport implements FromQuery
         $this->tanggal = $tanggal;
     }
 
+
     public function query()
     {
-        $nilai = Nilai::query();
+        $absensi = Absensi::query();
 
         if ($this->kelas !== 'nofilter') {
-            $nilai = Nilai::query()->where('kelas', 'like', "%".$this->kelas."%");
+            $absensi = Absensi::query()->where('kelas', 'like', "%".$this->kelas."%");
         } else if ($this->tanggal !== 'nodate') {
-            $nilai = Nilai::query()->where('tgl_evaluasi', $this->tanggal);
+            $absensi = Absensi::query()->where('tgl_evaluasi', $this->tanggal);
         } else if ($this->kelas !== 'nofilter' && $this->tanggal !== 'nodate') {
-            $nilai = Nilai::query()
+            $absensi = Absensi::query()
                 ->where('tgl_evaluasi', $this->tanggal)
                 ->where('kelas', $this->kelas);
         }
 
-        return $nilai;
+        return $absensi;
     }
 }

@@ -51,8 +51,8 @@ Route::post('/laporan-pembayaran/report', 'UploadController@report');
 
 //laporan data absensi
 
-Route::get('/laporan/laporan-absensi', 'AbsenController@laporan')->name('laporan.laporan-absensi');
-Route::post('/laporan-absensi/report', 'AbsenController@report');
+Route::get('/laporan/laporan-absensi', 'AbsensiController@laporan')->name('laporan.laporan-absensi');
+Route::post('/laporan-absensi/report', 'AbsensiController@report');
 
 
 
@@ -175,3 +175,21 @@ Route::get('/nilai/hapus/{params}', 'NilaiController@hapus');
 //cetak nilai siswa
 Route::get('/nilai/print-pdf/{kelas}/{tanggal}', 'NilaiController@printPDF');
 Route::get('/nilai/print-excel/{kelas}/{tanggal}', 'NilaiController@printExcel');
+
+
+//kelola absen untuk admin
+//menjalankan controller 
+Route::get('/absensi', 'AbsensiController@index')->name('absensi');
+//search data 
+Route::get('/absensi/cari','AbsensiController@cari');
+//tambah 
+Route::get('/absensi/tambah', 'AbsensiController@tambah');
+Route::post('/absensi/store', 'AbsensiController@store');
+//edit
+Route::get('/absensi/edit/{params}', 'AbsensiController@edit');
+Route::post('/absensi/update', 'AbsensiController@update');
+//hapus 
+Route::get('/absensi/hapus/{params}', 'AbsensiController@hapus');
+//cetak nilai siswa
+Route::get('/absensi/print-pdf/{kelas}/{tanggal}', 'AbsensiController@printPDF');
+Route::get('/absensi/print-excel/{kelas}/{tanggal}', 'AbsensiController@printExcel');

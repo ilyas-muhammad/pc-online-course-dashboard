@@ -5,8 +5,9 @@
 {{-- Custom CSS --}}
 @push('css')
 <!-- DataTables -->
-<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}"> --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 @endpush
 
 @section('content')
@@ -36,10 +37,10 @@
    
     <br /><br />
     
-        <table id="siswatbl" class="table table-bordered table-hover projects">
+        <table id="siswatbl" class="projects">
             <thead>
                 <tr>
-                    <th style="width: 20%">
+                    <th class='site_name' style="width: 20%">
                         Nama Siswa
                     </th>
                     <th style="width: 10%">
@@ -95,17 +96,20 @@
 
 @push('js')
 <!-- DataTables -->
-<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script> --}}
+
+
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 
 <script>
-    $(function () {
+    $(document).ready( function () {
       $("#siswatbl").DataTable({
-        "columnDefs": [
-            { "width": "10%", "targets": -1 }
-        ]
+        paging: false,
+        scrollY: 400
       });
     });
 </script>

@@ -153,13 +153,7 @@ public function tambah()
 
     public function printExcel($kelas, $tanggal)
     {
-        $nilai = DB::table('nilai')->get();
-        
-        if ($kelas !== 'nofilter') {
-            $nilai = DB::table('nilai')->where('kelas', 'tgl_evaluasi', 'like', "%".$kelas."%")->get();
-        }
-
-        return Excel::download($nilai, 'data-nilai.xls');
+        return Excel::download(new NilaiExport($kelas, $tanggal), 'data-nilai.xls');
     }
 }
 

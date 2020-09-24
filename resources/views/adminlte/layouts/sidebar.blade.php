@@ -32,7 +32,16 @@
                 <li class="nav-item">
                     <a href="{{ route('absen') }}" class="nav-link">
                         <i class="nav-icon far fa-calendar-check"></i>
-                        <p> Absensi  </p>
+                        <p> Absen Siswa  </p>
+                    </a>
+                </li>
+                @endif
+
+                @if (Auth::user()->level == 1)
+                <li class="nav-item">
+                    <a href="{{ route('absensi') }}" class="nav-link">
+                        <i class="nav-icon far fa-calendar-check"></i>
+                        <p> Data Absensi </p>
                     </a>
                 </li>
                 @endif

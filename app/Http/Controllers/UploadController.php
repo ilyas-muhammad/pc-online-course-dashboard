@@ -56,7 +56,6 @@ public function report(Request $request)
     
     $gambar = $query->get();
 
-    // var_dump($gambar);die();
     //mengirim data siswa ke view siswa
     return view('adminlte.laporan.laporan-pembayaran', ['gambar' => $gambar, 'kelas' => $kelas, 'date' => $tanggal]);
 }
@@ -153,14 +152,16 @@ public function cari (Request $request)
     public function printPDF($kelas, $tanggal)
     {
         //mengambil data dari tabel  siswa
-        $gambar = Galery::get();
+        $gambar = Galery::query();
         if ($kelas != 'nofilter') {
-            $gambar = Galery::where('kelas', $kelas)->get();
+            $gambar->where('kelas', $kelas);
         }
     
-        // if ($tanggal != 'nodate') {
-        //     $query->where('tgl_pembayaran', $tanggal);
-        // }
+        if ($tanggal != 'nodate') {
+            $gambar->where('tgl_pembayaran', $tanggal);
+        }
+
+        $gambar = $gambar->get();
         
         $pdf = PDF::loadview('upload-pdf', ['gambar' => $gambar]);
         // var_dump($pdf); die();
@@ -170,12 +171,6 @@ public function cari (Request $request)
 
     public function printExcel($kelas, $tanggal)
     {
-        $gambar = DB::table('galeries')->get();
-        
-        if ($kelas !== 'nofilter') {
-            $siswa = DB::table('galeries')->where('kelas', 'tgl_pembayaran', 'like', "%".$kelas."%")->get();
-        }
-
-        return Excel::download($gambar, 'data-pembayaran.xls');
+        return Excel::download(new PembayaranExport($kelas, $tanggal), 'data-nilai.xls');
     }
 }

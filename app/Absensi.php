@@ -4,15 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Evaluasi extends Model
+class Absensi extends Model
 {
-    protected $table = "evaluasi";
+    protected $table = "absensi";
 
-    protected $fillable = ['name', 'kelas', 'nama_evaluasi', 'skor', 'id_user'];
+    protected $fillable = ['name', 'kelas', 'tgl_absen', 'keterangan', 'id_user'];
 
     public function user()
     {
         return $this->belongsTo('App\User');
     }
-}
-
+} 
