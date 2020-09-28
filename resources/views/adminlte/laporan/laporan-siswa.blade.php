@@ -2,6 +2,7 @@
 
 @section('title', 'DATA SISWA')
 
+
 {{-- Custom CSS --}}
 @push('css')
 <!-- DataTables -->

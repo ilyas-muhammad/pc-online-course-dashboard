@@ -1,6 +1,6 @@
 @extends('auth.master')
 
-
+<body style ="background-color:papayawhip;">
 
 
 <div class="auth-box row">

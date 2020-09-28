@@ -1,5 +1,6 @@
 {{-- @extends('auth.master') --}}
 
+<body style ="background-color:papayawhip;">
 {{-- Custom CSS --}}
 @push('css')
 <!-- DataTables -->

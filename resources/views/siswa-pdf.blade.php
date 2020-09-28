@@ -7,7 +7,7 @@
 
 </head>
 <body>
-
+<img src="/images/logo.jpg" class="mx-auto d-block"/>
 
 <style type="text/css">
 table tr td,

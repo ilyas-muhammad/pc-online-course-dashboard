@@ -1,5 +1,7 @@
 {{-- @extends('auth.master') --}}
 
+<body style ="background-color:papayawhip;">
+
 {{-- @section('content') --}}
 <h1>BIMBEL AN - NAJM PRESTASI </h1>
     <img src="/images/logo.jpg" />

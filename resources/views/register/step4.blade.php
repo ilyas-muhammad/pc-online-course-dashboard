@@ -1,4 +1,5 @@
 {{-- @extends('auth.master') --}}
+<body style ="background-color:papayawhip;">
 
 {{-- @section('content') --}}
  
