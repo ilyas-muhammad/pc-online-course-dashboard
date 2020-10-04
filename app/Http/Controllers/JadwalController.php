@@ -21,7 +21,7 @@ class JadwalController extends Controller
         $jadwal = Jadwal::where('id_user', $userId)->get();
 
         if ($user->level == 1) { //admin
-            $jadwal = Jadwal::get(); // get semua data
+            $jadwal = Jadwal::get (); // get semua data
         } else {
             $siswa = Siswa::where('id_users', $userId)->first();
 

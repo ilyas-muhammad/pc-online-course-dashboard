@@ -51,12 +51,13 @@
                     <th style="width: 10%">
                         Waktu Akhir
                     </th>
+                    @if ($user->level == 1)
                     <th style="width: 10%">
                         Maksimal Siswa
                     </th>
 
                     
-                    @if ($user->level == 1)
+                    
                     <th style="width: 20%">
                         Actions
                     </th>
@@ -74,11 +75,12 @@
     
                   <td> {{ $j-> hari}}</td>  
                   <td> {{ $j-> waktu_mulai }}</td> 
-                  <td> {{ $j-> waktu_akhir }}</td>      
+                  <td> {{ $j-> waktu_akhir }}</td>  
+                  @if ($user->level == 1)    
                   <td> {{ $j-> max_siswa }}</td>
 
                     
-                  @if ($user->level == 1)
+                
                     <td class="project-actions text-right">
             
                         <a class="btn btn-info btn-sm" href="jadwal/edit/{{$j->id}}">
