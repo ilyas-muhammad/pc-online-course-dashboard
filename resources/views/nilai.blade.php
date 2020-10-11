@@ -84,9 +84,8 @@
                         </a>
                     </td>
                 </tr>
-                </tr>
+                @endforeach
             </tbody>
-            @endforeach
         </table>
     </div>
 </div>
