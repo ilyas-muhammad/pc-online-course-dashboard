@@ -88,7 +88,7 @@
 
         <h4 class="my-5">Data Pembayaran Siswa</h4>
 
-        <table class="table table-bordered table-stripped">
+        <table class="table table-bordered table-stripped" id="table-pembayaran">
             <thead>
                 <tr>
                     <th>Nama Siswa</th>
@@ -154,7 +154,7 @@
 
 <script>
     $(function () {
-      $("#example1").DataTable({
+      $("#table-pembayaran").DataTable({
         "columnDefs": [
             { "width": "10%", "targets": -1 }
         ]
