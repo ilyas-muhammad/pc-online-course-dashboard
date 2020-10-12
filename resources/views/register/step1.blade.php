@@ -31,8 +31,8 @@
         @csrf
 
         <div class="form-group">
-         <b> Nama Siswa</b><br/>
-        <input type="text" name="name" class="form-controll" placeholder="Enter name" value="{{ session()->get('register.name') }}">
+        <label>Nama Siswa </label><br/>
+        <input type="text" name="name" class="form-control" placeholder="Enter name" value="{{ session()->get('register.name') }}">
         <br /> <br />
         </div>
        
@@ -57,7 +57,9 @@
         <br /> <br />
         </div>
 
-        <button type="submit" class="btn btn-primary">Next</button>
+        <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Continue">
+        </div>
      </form>
 </div>
     

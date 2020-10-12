@@ -25,16 +25,10 @@
 <br/>
 <br/>
 
-<div class="card-body">
-<p> Cari Evaluasi: </p>
-    <form action="/evaluasi/cari" method="GET" class="form-inline">
-      <input class="form-control" type="text" name="cari" placeholder="Cari Akun Evaluasi .." value="{{ old('cari') }}">
-        <input class="btn btn-primary ml-3" type="submit" value="CARI">
-    </form>
-    <br/>
 
-   
-        <table id="example1" class="table table-bordered table-hover projects">
+
+<div class="card-body">
+        <table id="evaluasitbl" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
                 <th style="width: 10%">
@@ -81,8 +75,8 @@
                   @endif
                 </tr>
                 </tr>
+                @endforeach
             </tbody>
-            @endforeach
         </table>
     </div>
 </div>
@@ -97,7 +91,7 @@
 
 <script>
     $(function () {
-      $("#example1").DataTable({
+      $("#evaluasitbl").DataTable({
         "columnDefs": [
             { "width": "10%", "targets": -1 }
         ]

@@ -23,12 +23,7 @@
 <br/>
 <br/>
 <div class="card-body">
-<p> Cari Nilai : </p>
-    <form action="/nilai/cari" method="GET" class="form-inline">
-      <input class="form-control" type="text" name="cari" placeholder="Cari Akun NIlai .." value="{{ old('cari') }}">
-        <input class="btn btn-primary ml-3" type="submit" value="CARI">
-    </form>
-    <br/>
+
     
 
     <a href="/nilai/print-pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
@@ -36,7 +31,7 @@
 
     <br/><br/>
     
-        <table id="example1" class="table table-bordered table-hover projects">
+        <table id="nilaitbl" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
                     <th style="width: 20%">
@@ -90,6 +85,7 @@
     </div>
 </div>
 @endsection
+
 @push('js')
 <!-- DataTables -->
 <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
@@ -99,7 +95,7 @@
 
 <script>
     $(function () {
-      $("#example1").DataTable({
+      $("#nilaitbl").DataTable({
         "columnDefs": [
             { "width": "10%", "targets": -1 }
         ]

@@ -10,7 +10,7 @@
 @endpush
 
 @section('content')
-<a href="/bank"> Kembali</a>
+<a href="/bank" class="btn btn-primary"> Kembali</a>
 <br/>
 <br/>
 
@@ -19,15 +19,26 @@
     {{ csrf_field()}}
     <input type="hidden" name="id" value="{{ $b->id}}"> <br/>
 
-    Nama  Bank : <input type="text"  required="required" name="nama_bank" value="{{ $b-> nama_bank}}"> <br/><br/>
-    Nama Akun Bank : <input type="text"  required="required" name="nama_akun" value="{{ $b-> nama_akun}}"> <br/><br/>
-    No Rekening : <input type="text"  required="required" name="no_rekening" value="{{ $b-> no_rekening}}"> <br/><br/>
+    <div class="form-group">
+    <label>Nama Bank</label>
+    <input type="text"  required="required" name="nama_bank" class="form-control" placeholder="Nama Bank .." value="{{ $b-> nama_bank}}"> <br/>
+   
+    <div class="form-group">
+    <label>Nama Akun Bank</label>
+    <input type="text"  required="required" name="nama_akun" class="form-control" placeholder="Nama Akun Bank .." value="{{ $b-> nama_akun}}"> <br/>
+    
+    <div class="form-group">
+    <label>No Rekening</label>
+    <input type="text"  required="required" name="no_rekening" class="form-control" placeholder="Nama Rekening .." value="{{ $b-> no_rekening}}"> <br/>
 
 
-    <input type="submit" value="Simpan Data">
+    <input type="submit" class="btn btn-success"  value="Simpan Data">
     </form>
     @endforeach
     @endsection
+
+
+
     @push('js')
 <!-- DataTables -->
 <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>

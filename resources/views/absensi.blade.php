@@ -12,7 +12,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Data Evaluasi Siswa</h3>
+        <h3 class="card-title">Data Absensi Siswa</h3>
 </div>
 
 <div class="form-group">
@@ -26,15 +26,9 @@
 <br/>
 
 <div class="card-body">
-<p> Cari Absensi: </p>
-    <form action="/absensi/cari" method="GET" class="form-inline">
-      <input class="form-control" type="text" name="cari" placeholder="Cari Akun Absensi .." value="{{ old('cari') }}">
-        <input class="btn btn-primary ml-3" type="submit" value="CARI">
-    </form>
-    <br/>
 
    
-        <table id="example1" class="table table-bordered table-hover projects">
+        <table id="absensitbl" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
                 <th style="width: 10%">
@@ -81,8 +75,9 @@
                   @endif
                 </tr>
                 </tr>
+                @endforeach
             </tbody>
-            @endforeach
+           
         </table>
     </div>
 </div>
@@ -97,7 +92,7 @@
 
 <script>
     $(function () {
-      $("#example1").DataTable({
+      $("#absensitbl").DataTable({
         "columnDefs": [
             { "width": "10%", "targets": -1 }
         ]

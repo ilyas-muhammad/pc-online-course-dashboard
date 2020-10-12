@@ -10,7 +10,7 @@
 @endpush
 
 @section('content')
-<a href="/nilai"> Kembali</a>
+<a href="/nilai" class="btn btn-primary"> Kembali</a>
 <br/>
 <br/>
 
@@ -19,13 +19,27 @@
     {{ csrf_field()}}
     <input type="hidden" name="id" value="{{ $n->id}}"> <br/>
 
-    Nama  Siswa: <input type="text"  required="required" name="name" value="{{ $n-> name}}"> <br/><br/>
-    Tgl Evaluasi: <input type="date"  required="required" name="tgl_evaluasi" value="{{ $n-> tgl_evaluasi}}"> <br/><br/>
-    Kelas : <input type="text"  required="required" name="kelas" value="{{ $n-> kelas}}"> <br/><br/>
-    Jenis Kelamin : <input type="text"  required="required" name="jenkel" value="{{ $n-> jenkel}}"> <br/><br/>
-    Skor : <input type="text"  required="required" name="skor" value="{{ $n-> skor}}"> <br/><br/>
+    <div class="form-group">
+    <label>Nama Siswa</label>
+    <input type="text"  required="required" name="name" class="form-control" placeholder="Nama Siswa .." value="{{ $n-> name}}"> <br/>
 
-    <input type="submit" value="Simpan Data">
+    <div class="form-group">
+    <label>Tanggal Evaluasi</label>
+    <input type="date"  required="required" name="tgl_evaluasi" class="form-control" placeholder="Tanggal Evaluasi .." value="{{ $n-> tgl_evaluasi}}"> <br/>
+
+    <div class="form-group">
+    <label>Kelas</label>
+    <input type="text"  required="required" name="kelas" class="form-control" placeholder="Kelas .." value="{{ $n-> kelas}}"> <br/>
+
+    <div class="form-group">
+    <label>Jenis Kelamin</label>
+    <input type="text"  required="required" name="jenkel" class="form-control" placeholder="Jenis Kelamin .."  value="{{ $n-> jenkel}}"> <br/>
+
+    <div class="form-group">
+    <label>Skor</label>
+    <input type="text"  required="required" name="skor" class="form-control" placeholder="Skor .." value="{{ $n-> skor}}"> <br/><br/>
+
+    <input type="submit" class="btn btn-success" value="Simpan Data">
     </form>
     @endforeach
     @endsection

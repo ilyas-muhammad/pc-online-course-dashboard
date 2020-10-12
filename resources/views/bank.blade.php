@@ -25,14 +25,9 @@
 
 <div class="card-body">
 
-<p> Cari Akun Bank : </p>
-    <form action="/bank/cari" method="GET" class="form-inline">
-      <input class="form-control" type="text" name="cari" placeholder="Cari Akun Bank .." value="{{ old('cari') }}">
-        <input class="btn btn-primary ml-3" type="submit" value="CARI">
-    </form>
-    <br/>
+
     
-        <table id="example1" class="table table-bordered table-hover projects">
+        <table id="banktbl" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
                     <th style="width: 20%">
@@ -73,8 +68,9 @@
                     </td>
                 </tr>
                 </tr>
+                @endforeach
             </tbody>
-            @endforeach
+          
         </table>
     </div>
 </div>
@@ -89,7 +85,7 @@
 
 <script>
     $(function () {
-      $("#example1").DataTable({
+      $("#banktbl").DataTable({
         "columnDefs": [
             { "width": "10%", "targets": -1 }
         ]

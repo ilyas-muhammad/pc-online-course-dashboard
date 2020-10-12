@@ -19,8 +19,6 @@
 <div class="form-group">
 </div>
 
-
-
 <br/>
 <br/>
 
@@ -37,7 +35,8 @@
    
     <br /><br />
     
-        <table id="siswatbl" class="projects">
+        <table class="table table-bordered table-hover projects" id="siswatbl" >
+        
             <thead>
                 <tr>
                     <th class='site_name' style="width: 20%">
@@ -101,14 +100,14 @@
 <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script> --}}
 
 
-<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 
 <script>
-    $(document).ready( function () {
+    $(function () {
       $("#siswatbl").DataTable({
-        paging: false,
-        scrollY: 400
+        "columnDefs": [
+            { "width": "10%", "targets": -1 }
+        ]
       });
     });
 </script>

@@ -7,6 +7,7 @@
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+
 @endpush
 
 @section('content')
@@ -24,16 +25,8 @@
 <br/>
 <br/>
 <div class="card-body">
-    <p> Cari Jadwal Siswa : </p>
-    <form action="/jadwal/cari" method="GET" class="form-inline">
-      <input class="form-control" type="text" name="cari" placeholder="Cari Jadwal .." value="{{ old('cari') }}">
-        <input class="btn btn-primary ml-3" type="submit" value="CARI">
-    </form>
-    <br/>
-    <br/>
 
-    
-        <table id="example1" class="table table-bordered table-hover projects">
+        <table id="jadwaltbl" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
                     <th style="width: 20%">
@@ -97,8 +90,9 @@
                     @endif
                 </tr>
                 </tr>
+                @endforeach
             </tbody>
-            @endforeach
+           
         </table>
     </div>
 </div>
@@ -113,7 +107,7 @@
 
 <script>
     $(function () {
-      $("#example1").DataTable({
+      $("#jadwaltbl").DataTable({
         "columnDefs": [
             { "width": "10%", "targets": -1 }
         ]

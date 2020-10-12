@@ -10,7 +10,7 @@
 @endpush
 
 @section('content')
-<a href="/evaluasi"> Kembali</a>
+<a href="/evaluasi" class="btn btn-primary"> Kembali</a>
 <br/>
 <br/>
 
@@ -19,13 +19,23 @@
     {{ csrf_field()}}
     <input type="hidden" name="id" value="{{ $e->id}}"> <br/>
 
-    Nama  Siswa: <input type="text"  required="required" name="name" value="{{ $e-> name}}"> <br/><br/>
+    <div class="form-group">
+    <label>Nama Siswa</label>
+    <input type="text"  required="required"   name="name" class="form-control" placeholder="Nama Siswa .." value="{{ $e-> name}}"> <br/>
    
-    Kelas : <input type="text"  required="required" name="kelas" value="{{ $e-> kelas}}"> <br/><br/>
-    Link Evaluasi: <input type="text"  required="required" name="nama_evaluasi" value="{{ $e-> nama_evaluasi}}"> <br/><br/>
-    Skor : <input type="text"  required="required" name="skor" value="{{ $e-> skor}}"> <br/><br/>
+    <div class="form-group">
+    <label>Kelas</label>
+    <input type="text"  required="required" name="kelas" class="form-control" placeholder="Kelas .." value="{{ $e-> kelas}}"> <br/>
 
-    <input type="submit" value="Simpan Data">
+    <div class="form-group">
+    <label>Link Evaluasi</label>
+   <input type="text"  required="required" name="nama_evaluasi" class="form-control" placeholder="Link Evaluasi .." value="{{ $e-> nama_evaluasi}}"> <br/>
+
+    <div class="form-group">
+    <label>Skor</label>
+    <input type="text"  required="required" name="skor" class="form-control" placeholder="Skor .." value="{{ $e-> skor}}"> <br/>
+
+    <input type="submit" class="btn btn-success" value="Simpan Data">
     </form>
     @endforeach
     @endsection
