@@ -7,14 +7,19 @@
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
 @endpush
 
+
 @section('content')
-<a href="/jadwal"> Kembali</a>
+<div class="card-header">
+<a href="/jadwal"class="btn btn-primary"> Kembali</a>
 <br/>
-<br/>
+</div>
 
-
+<div class="card-body">
 <form action="/jadwal/update" method="POST">
 @foreach($jadwal as $j)
     {{ csrf_field()}}
@@ -23,15 +28,31 @@
    
 
     <div class="form-group">
-    Nama Kelas : <input type="text"  required="required" name="nama_kelas" value="{{ $j-> nama_kelas}}"> <br/><br/>
-    Hari     : <input type="text"  required="required" name="hari" value="{{ $j-> hari}}"> <br/><br/>
-    Waktu Mulai     : <input type="time"  required="required" name="waktu_mulai" value="{{ $j-> waktu_mulai}}"> <br/><br/>
-    Waktu Akhir     : <input type="time"  required="required" name="waktu_akhir" value="{{ $j-> waktu_akhir}}"> <br/><br/>
-    Maksimal Siswa  : <input type="text"  required="required" name="max_siswa" value="{{ $j-> max_siswa}}"> <br/><br/>
+    <label>Nama Kelas</label>
+    <input type="text"  required="required" name="nama_kelas" class="form-control" placeholder="Nama Kelas..." value="{{ $j-> nama_kelas}}"> <br/>
+    
+    <div class="form-group">
+    <label>Hari</label>
+    <input type="text"  required="required" name="hari" class="form-control" placeholder="Nama Hari..."  value="{{ $j-> hari}}"> <br/>
+
+    <div class="form-group">
+    <label>Waktu Mulai</label>
+    <input type="time"  required="required" name="waktu_mulai"  class="form-control" placeholder="Waktu Mulai..."  value="{{ $j-> waktu_mulai}}"> <br/>
+   
+    <div class="form-group">
+    <label>Waktu Akhir</label>
+    <input type="time"  required="required" name="waktu_akhir" class="form-control" placeholder="Waktu Akhir..." value="{{ $j-> waktu_akhir}}"> <br/>
+    
+    <div class="form-group">
+    <label>Maksimal Siswa</label>
+    <input type="text"  required="required" name="max_siswa"class="form-control" placeholder="Maksimal Siswa..."  value="{{ $j-> max_siswa}}"> <br/>
    
 
-    <input type="submit" value="Simpan Data">
+    <input type="submit" class="btn btn-success" value="Simpan Data">
     </form>
+</div>
+
+
     @endforeach
     @endsection
    

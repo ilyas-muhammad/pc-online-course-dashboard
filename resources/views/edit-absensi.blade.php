@@ -10,7 +10,7 @@
 @endpush
 
 @section('content')
-<a href="/absensi"> Kembali</a>
+<a href="/absensi" class="btn btn-primary"> Kembali</a>
 <br/>
 <br/>
 
@@ -19,13 +19,24 @@
     {{ csrf_field()}}
     <input type="hidden" name="id" value="{{ $b->id}}"> <br/>
 
-    Nama  Siswa: <input type="text"  required="required" name="name" value="{{ $b-> name}}"> <br/><br/>
+    <div class="form-group">
+    <label>Nama Siswa</label>
+    <input type="text"  required="required" name="name" class="form-control" placeholder="Nama Siswa .." value="{{ $b-> name}}"> <br/>
    
-    Kelas : <input type="text"  required="required" name="kelas" value="{{ $b-> kelas}}"> <br/><br/>
-    Tanggal Absen: <input type="date"  required="required" name="tgl_absen" value="{{ $b-> tgl_absen}}"> <br/><br/>
-    Keterangan: <input type="text"  required="required" name="keterangan" value="{{ $b-> keterangan}}"> <br/><br/>
+    <div class="form-group">
+    <label>Kelas</label>
+    <input type="text"  required="required" name="kelas" class="form-control" placeholder="Kelas .." value="{{ $b-> kelas}}"> <br/>
 
-    <input type="submit" value="Simpan Data">
+    <div class="form-group">
+    <label>Tanggal Absen</label>
+    <input type="date"  required="required" name="tgl_absen" class="form-control" placeholder="Tanggal Absen .." value="{{ $b-> tgl_absen}}"> <br/>
+
+    
+    <div class="form-group">
+    <label>Keterangan</label>
+    <input type="text"  required="required" name="keterangan" class="form-control" placeholder="Keterangan .." value="{{ $b-> keterangan}}"> <br/><br/>
+
+    <input type="submit" class="btn btn-success"  value="Simpan Data">
     </form>
     @endforeach
     @endsection

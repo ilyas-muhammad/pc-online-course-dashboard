@@ -3,8 +3,12 @@
 <body style ="background-color:papayawhip;">
 
 {{-- @section('content') --}}
-<h1>BIMBEL AN - NAJM PRESTASI </h1>
+
+<div style="border-radius:25px; margin-top:150px; margin-left:550px; background-color:thistle; width:400px; border-width:1px; border-style:solid; padding:20px;">
+<div style="text-align:center;">
+<h2>BIMBEL AN - NAJM PRESTASI </h2>
     <img src="/images/logo.jpg" />
+    </div>
     <p> Silahkan Konfirmasi Pembayaran Anda! </p>
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -55,4 +59,6 @@
             <a type="button" href="/register2" class="btn btn-warning">Back to Step 2</a>
             <button type="submit" class="btn btn-primary">Continue</button>
      </form>
+</div>
+
 {{-- @endsection  --}}

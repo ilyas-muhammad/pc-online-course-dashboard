@@ -3,15 +3,20 @@
 <body style ="background-color:papayawhip;">
 {{-- Custom CSS --}}
 @push('css')
-<!-- DataTables -->
-<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endpush
 {{-- @section('content') --}}
 
-
-    <h1>BIMBEL AN - NAJM PRESTASI </h1>
-    <img src="/images/logo.jpg" />
+<div style="border-radius:25px; margin-top:150px; margin-left:550px; background-color:thistle; width:400px; border-width:1px; border-style:solid; padding:20px;">
+<div style="text-align:center;">
+<h2>BIMBEL AN - NAJM PRESTASI </h2>
+<img src="/images/logo.jpg" class="mx-auto d-block"/>
+</div>
     <p> Silahkan Isi Data Diri Anda! </p>
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -52,24 +57,17 @@
         <br /> <br />
         </div>
 
-        <input class="btn btn-primary ml-3" type="submit" value="Next">
+        <button type="submit" class="btn btn-primary">Next</button>
      </form>
+</div>
+    
 {{-- @endsection  --}}
 
 @push('js')
-<!-- DataTables -->
-<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-
-<script>
-    $(function () {
-      $("#example1").DataTable({
-        "columnDefs": [
-            { "width": "10%", "targets": -1 }
-        ]
-      });
-    });
-</script>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endpush
