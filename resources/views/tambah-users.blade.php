@@ -12,7 +12,7 @@
 
 @section('content')
 
-<a href="/users"> Kembali</a>
+<a href="/users" class="btn btn-outline-info"> Kembali</a>
 <br/>
 <br/>
 

@@ -42,6 +42,7 @@ public function tambah()
         //memanggil view tambah
         return view ('tambah-evaluasi', ['siswa' => $siswa]);
     }
+    
     public function store(Request $request)
     {
         $pesan = [

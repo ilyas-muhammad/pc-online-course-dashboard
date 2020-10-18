@@ -24,16 +24,6 @@
 
 <div class="card-body">
 
-<p> Cari Data Siswa : </p>
-    <form action="/siswa/cari" method="GET" class="form-inline">
-      <input class="form-control" type="text" name="cari" placeholder="Cari Siswa .." value="{{ old('cari') }}">
-        <input class="btn btn-primary ml-3" type="submit" value="CARI">
-    </form>
-    <br/>
-    
-  
-   
-    <br /><br />
     
         <table class="table table-bordered table-hover projects" id="siswatbl" >
         

@@ -17,7 +17,6 @@
 
 
 
-
 <div class="card-body">
 <form action="{{ action('AbsensiController@report') }}" method="POST" class="form-inline">
         {{ csrf_field() }}
@@ -49,7 +48,7 @@
 
 
    
-        <table id="example1" class="table table-bordered table-hover projects">
+        <table id="absensitbl" class="table table-bordered table-hover projects">
             <thead>
                 <tr>
                 <th style="width: 10%">
@@ -78,8 +77,8 @@
         
                 </tr>
                 </tr>
+                @endforeach
             </tbody>
-            @endforeach
         </table>
     </div>
 </div>
@@ -94,7 +93,7 @@
 
 <script>
     $(function () {
-      $("#example1").DataTable({
+      $("#absensitbl").DataTable({
         "columnDefs": [
             { "width": "10%", "targets": -1 }
         ]

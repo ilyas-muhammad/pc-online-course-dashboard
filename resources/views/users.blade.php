@@ -36,9 +36,7 @@
                     <th style="width: 10%">
                         Email
                     </th>
-                    <th style="width: 5%" class="text-center">
-                        Status
-                    </th>
+                   
                     <th style="width: 20%">
                         Actions
                     </th>
@@ -49,7 +47,7 @@
                 <tr>
                   <td> {{ $u-> name}}</td>
                   <td> {{ $u-> email }}</td>
-                  <td> {{ $u-> status }}</td>
+                
                     
                    
                     <td class="project-actions text-right">

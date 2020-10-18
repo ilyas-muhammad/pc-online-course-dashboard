@@ -17,7 +17,8 @@
 
 @section('content')
 
-<a href="/absensi"> Kembali</a>
+
+<a href="/absensi"  class="btn btn-outline-info"> Kembali</a>
 <br/>
 <br/>
 
@@ -37,7 +38,7 @@
     {{ csrf_field()}}
     <div class="form-group">
         <label for="name">*Nama Siswa</label> <br />
-        <select name="name">
+     <select  class="form-control" id="sel1" name="name">
             @foreach($siswa as $data)
                 <option value="{{ $data->id_users }}">{{ $data->name }}</option>
             @endforeach

@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Nilai;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
 use Illuminate\Support\Facades\Auth;
 use PDF;
@@ -17,14 +16,18 @@ class NilaiController extends Controller
     }
     public function index()
     {
-        $usersId = Auth::id();
-        $users = Auth::user();
+        $userId = Auth::id();
+        $user = Auth::user();
+    
+        $nilai = DB::table('nilai')->where('id_user', $userId)->get();
+    
+        if ($user->level == 1) { //admin
+            $nilai = DB::table('nilai')->get(); // get semua data
+        }
 
-    //mengambil data dari tabel  siswa
-    $nilai = DB::table('nilai')->get();
 
     //mengirim data siswa ke view siswa
-    return view ('nilai', ['nilai' => $nilai]);
+    return view ('nilai', ['nilai' => $nilai, 'user' => $user]);
 }
 
 public function laporan()
@@ -72,8 +75,10 @@ public function cari (Request $request)
 
 public function tambah()
     {
+
+        $siswa = DB::table('siswa')->get();
         //memanggil view tambah
-        return view ('tambah-nilai');
+        return view ('tambah-nilai', ['siswa' => $siswa]);
     }
     public function store(Request $request)
     {
@@ -93,19 +98,31 @@ public function tambah()
 
         ], $pesan);
 
+        $siswa = DB::table('siswa')->where('id_users', $request->name)->first();
+
         //insert data ke table bank
         DB::table('nilai')->insert([
-            'name' => $request->name,
+            'name' => $siswa->name,
             'tgl_evaluasi' => $request->tgl_evaluasi,
             'kelas' => $request->kelas,
             'jenkel' => $request->jenkel,
             'skor' => $request->skor,
+            'id_user' => $siswa->id_users,
         ]);
-        //alihkan halaman ke halaman bank
-        return redirect ('/nilai');
-    
-    
+
+        $userId = Auth::id();
+        $user = Auth::user();
+
+        $nilai = DB::table('nilai')->where('id_user', $userId)->get();
+
+        if ($user->level == 1) { //admin
+            $nilai = DB::table('nilai')->get(); // get semua data
+        }
+
+        return view ('nilai', ['nilai' => $nilai, 'user' => $user]);
     }
+
+   
     public function edit($id)
     {
         //mEnGambil data bank berdasarkan id yang dipilih

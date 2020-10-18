@@ -11,7 +11,7 @@
 
 @section('content')
 
-<a href="/jadwal"> Kembali</a>
+<a href="/jadwal" class="btn btn-outline-info"> Kembali</a>
 <br/>
 <br/>
 

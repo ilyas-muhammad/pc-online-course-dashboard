@@ -3,11 +3,18 @@
 <body style ="background-color:papayawhip;">
 
 {{-- @section('content') --}}
-
-<div style="border-radius:25px; margin-top:150px; margin-left:550px; background-color:thistle; width:400px; border-width:1px; border-style:solid; padding:20px;">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div style="border-radius:25px; margin-top:50px; margin-left:550px; background-color:thistle; width:600px; border-width:2px; border-style:solid; padding:20px;">
 <div style="text-align:center;">
 <h2>BIMBEL AN - NAJM PRESTASI </h2>
     <img src="/images/logo.jpg" />
+    <br />
+    <br />
     </div>
     <p> Silahkan Konfirmasi Pembayaran Anda! </p>
     @if ($errors->any())

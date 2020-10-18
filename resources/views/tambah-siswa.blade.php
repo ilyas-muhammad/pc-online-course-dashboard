@@ -18,7 +18,7 @@
 
 @section('content')
 
-<a href="/siswa"> Kembali</a>
+<a href="/siswa" class="btn btn-outline-info"> Kembali</a>
 <br/>
 <br/>
 

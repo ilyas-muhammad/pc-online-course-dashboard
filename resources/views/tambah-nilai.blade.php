@@ -11,7 +11,7 @@
 
 @section('content')
 
-<a href="/nilai"> Kembali</a>
+<a href="/nilai" class="btn btn-outline-info"> Kembali</a>
 <br/>
 <br/>
 
@@ -30,10 +30,13 @@
 <form action="/nilai/store" method="POST">
     {{ csrf_field()}}
     <div class="form-group">
-        <label for="name">*Nama Siswa</label>
-        <input class="form-control" type="text" name="name" value="{{ old ('name') }}">
+        <label for="name">*Nama Siswa</label> <br />
+        <select  class="form-control" id="sel1" name="name">
+            @foreach($siswa as $data)
+                <option value="{{ $data->id_users }}">{{ $data->name }}</option>
+            @endforeach
+        </select>
     </div> 
-  
     <div class="form-group">
     <b> Tanggal Evaluasi</b><br/>
         <input type="date" name="tgl_evaluasi" value="{{ old ('tgl_evaluasi') }}">

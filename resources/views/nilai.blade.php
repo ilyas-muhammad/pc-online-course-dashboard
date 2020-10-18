@@ -23,12 +23,6 @@
 <br/>
 <br/>
 <div class="card-body">
-
-    
-
-    <a href="/nilai/print-pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
-    <a href="/nilai/print-excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
-
     <br/><br/>
     
         <table id="nilaitbl" class="table table-bordered table-hover projects">

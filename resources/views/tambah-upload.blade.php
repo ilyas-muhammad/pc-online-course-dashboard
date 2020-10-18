@@ -11,7 +11,7 @@
 
 @section('content')
 
-<a href="/upload"> Kembali</a>
+<a href="/upload" class="btn btn-outline-info"> Kembali</a>
 <br/>
 <br/>
 
