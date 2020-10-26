@@ -22,7 +22,7 @@
     <form action="{{ action('SiswaController@report') }}" method="POST" class="form-inline">
         {{ csrf_field() }}
         <label>Kelas : </label>
-        <select name="kelas">
+        <select class="form-control" name="kelas">
             <option value="4">4</option>
             <option value="5">5</option>
             <option value="6">6</option>

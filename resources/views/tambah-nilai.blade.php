@@ -27,8 +27,21 @@
 </div>
 @endif 
 
+@if($selectedKelas == null)
+	@php
+		$siswa = $siswa->where('kelas', reset($kelas));
+	@endphp
+@endif
 <form action="/nilai/store" method="POST">
     {{ csrf_field()}}
+    <div class="form-group">
+        <label for="kelas">*Kelas</label> <br />
+        <select class="form-control" name="kelas" id="kelas" onchange="changeKelas()">
+            @foreach($kelas as $data)
+                <option @if($selectedKelas == $data)selected @endif>{{ $data }}</option>
+            @endforeach
+        </select>
+    </div>
     <div class="form-group">
         <label for="name">*Nama Siswa</label> <br />
         <select  class="form-control" id="sel1" name="name">
@@ -42,10 +55,10 @@
         <input type="date" name="tgl_evaluasi" value="{{ old ('tgl_evaluasi') }}">
     </div> 
 
-    <div class="form-group">
+    {{--  <div class="form-group">
         <label for="kelas">*Kelas</label>
         <input class="form-control" type="text" name="kelas" value="{{ old ('kelas') }}">
-    </div> 
+    </div>  --}}
 
     <div class="form-group">
         <label for="jenkel">*Jenis Kelamin</label>
@@ -72,13 +85,19 @@
 <script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 
+
 <script>
+    function changeKelas() {
+        var kelas = $('#kelas').val();
+        var url = '/nilai/tambah?kelas='+kelas;
+        location.replace(url);
+    }
     $(function () {
-      $("#example1").DataTable({
-        "columnDefs": [
-            { "width": "10%", "targets": -1 }
-        ]
-      });
+    //   $("#example1").DataTable({
+    //     "columnDefs": [
+    //         { "width": "10%", "targets": -1 }
+    //     ]
+    //   });
     });
 </script>
 @endpush

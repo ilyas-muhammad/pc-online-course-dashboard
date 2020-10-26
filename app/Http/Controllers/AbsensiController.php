@@ -18,13 +18,10 @@ class AbsensiController extends Controller
     public function index(){
         $userId = Auth::id();
         $user = Auth::user();
-
         $absensi = DB::table('absensi')->where('id_user', $userId)->get();
-
         if ($user->level == 1) { //admin
             $absensi = DB::table('absensi')->get(); // get semua data
         }
-
         return view ('absensi', ['absensi' => $absensi, 'user' => $user]);
     }
     public function laporan()
@@ -68,11 +65,22 @@ public function cari (Request $request)
 
     return view('absensi',['absensi' => $absensi]);
 }
-public function tambah()
+public function tambah(Request $request)
     {
-        $siswa = DB::table('siswa')->get();
+	$siswa = DB::table('siswa')->get();
+	$kelas = [];
+        foreach($siswa->groupBy('kelas') as $index=>$data){
+            array_push($kelas, $index);
+        }
+        asort($kelas);
+	$selectedKelas = null;
+	if(!empty($request->all()) && !empty($request->kelas)){
+		$selectedKelas = $request->kelas;
+		$siswa = DB::table('siswa')->where('kelas', $request->kelas)->get();
+	}
+	//dd($kelas);
         //memanggil view tambah
-        return view ('tambah-absensi', ['siswa' => $siswa]);
+        return view ('tambah-absensi', ['siswa' => $siswa, 'kelas' => $kelas, 'selectedKelas' => $selectedKelas]);
     }
     public function store(Request $request)
     {

@@ -33,8 +33,22 @@
 </div>
 @endif 
 
+@if($selectedKelas == null)
+	@php
+		$siswa = $siswa->where('kelas', reset($kelas));
+	@endphp
+@endif
+
 <form action="/evaluasi/store" method="POST">
     {{ csrf_field()}}
+    <div class="form-group">
+        <label for="kelas">*Kelas</label> <br />
+        <select class="form-control" name="kelas" id="kelas" onchange="changeKelas()">
+            @foreach($kelas as $data)
+                <option @if($selectedKelas == $data)selected @endif>{{ $data }}</option>
+            @endforeach
+        </select>
+    </div>
     <div class="form-group">
         <label for="name">*Nama Siswa</label> <br />
       
@@ -45,10 +59,10 @@
         </select>
     </div> 
   
-    <div class="form-group">
+    {{--  <div class="form-group">
         <label for="kelas">*Kelas</label>
         <input class="form-control" type="text" name="kelas" value="{{ old ('kelas') }}">
-    </div> 
+    </div>  --}}
 
     <div class="form-group">
         <label for="nama_evaluasi">*Link Evaluasi</label>
@@ -80,13 +94,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script>
+
+  <script>
+    function changeKelas() {
+        var kelas = $('#kelas').val();
+        var url = '/evaluasi/tambah?kelas='+kelas;
+        location.replace(url);
+    }
     $(function () {
-      $("#example1").DataTable({
-        "columnDefs": [
-            { "width": "10%", "targets": -1 }
-        ]
-      });
+    //   $("#example1").DataTable({
+    //     "columnDefs": [
+    //         { "width": "10%", "targets": -1 }
+    //     ]
+    //   });
     });
 </script>
 @endpush

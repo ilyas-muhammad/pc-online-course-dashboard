@@ -1,5 +1,5 @@
 {{-- @extends('auth.master') --}}
-<body style ="background-color:papayawhip;">
+<body style ="background-image: url(assets/bg/bg.jpg);">
 
 {{-- @section('content') --}}
 <meta charset="utf-8">

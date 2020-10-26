@@ -36,11 +36,22 @@ public function cari (Request $request)
 
     return view('evaluasi',['evaluasi' => $evaluasi]);
 }
-public function tambah()
+public function tambah( Request $request)
     {
         $siswa = DB::table('siswa')->get();
+        $kelas = [];
+        foreach($siswa->groupBy('kelas') as $index=>$data){
+            array_push($kelas, $index);
+        }
+        asort($kelas);
+	$selectedKelas = null;
+	if(!empty($request->all()) && !empty($request->kelas)){
+		$selectedKelas = $request->kelas;
+		$siswa = DB::table('siswa')->where('kelas', $request->kelas)->get();
+	}
+	//dd($kelas);
         //memanggil view tambah
-        return view ('tambah-evaluasi', ['siswa' => $siswa]);
+        return view ('tambah-evaluasi', ['siswa' => $siswa, 'kelas' => $kelas, 'selectedKelas' => $selectedKelas]);
     }
     
     public function store(Request $request)
@@ -62,7 +73,7 @@ public function tambah()
 
         $siswa = DB::table('siswa')->where('id_users', $request->name)->first();
 
-        //insert data ke table bank
+        //insert data ke table 
         DB::table('evaluasi')->insert([
             'name' => $siswa->name,
             'kelas' => $request->kelas,

@@ -21,7 +21,7 @@
 <form action="{{ action('AbsensiController@report') }}" method="POST" class="form-inline">
         {{ csrf_field() }}
         <label>Kelas : </label>
-        <select name="kelas">
+        <select class="form-control" name="kelas">
         <option value="nofilter">Pilih Kelas</option>
             <option value="4">4</option>
             <option value="5">5</option>

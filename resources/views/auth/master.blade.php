@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 
-
+<body style ="background-image: url(assets/bg/bg.jpg);">
 <div class="auth-box row">
-<div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(public/images/bg.jpg);">
+<div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(assets/bg/bg.jpg);">
 </div>
 <div class="col-lg-5 col-md-7 bg-pink">
 </div>
@@ -30,6 +30,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
+<body style ="background-image: url(assets/bg/bg.jpg);">
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">

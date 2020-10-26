@@ -1,6 +1,6 @@
 {{-- @extends('auth.master') --}}
 
-<body style ="background-color:papayawhip;">
+<body style ="background-image: url(assets/bg/bg.jpg);">
 
 
 <meta charset="utf-8">
@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<div style="border-radius:40px; margin-top:50px; margin-left:550px; background-color:thistle; width:500px; border-width:2px; border-style:solid; padding:30px;">
+<div style="border-radius:40px; margin-top:50px; margin-left:600px; background-color:thistle; width:500px; border-width:2px; border-style:solid; padding:30px;">
 <div style="text-align:center;">
 <h2>BIMBEL AN - NAJM PRESTASI </h2>
 <img src="/images/logo.jpg" class="mx-auto d-block"/>

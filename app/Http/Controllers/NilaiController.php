@@ -73,13 +73,24 @@ public function cari (Request $request)
     return view('nilai',['nilai' => $nilai]);
 }
 
-public function tambah()
+public function tambah( Request $request)
     {
 
         $siswa = DB::table('siswa')->get();
-        //memanggil view tambah
-        return view ('tambah-nilai', ['siswa' => $siswa]);
+        $kelas = [];
+        foreach($siswa->groupBy('kelas') as $index=>$data){
+            array_push($kelas, $index);
+        }
+        asort($kelas);
+	$selectedKelas = null;
+	if(!empty($request->all()) && !empty($request->kelas)){
+		$selectedKelas = $request->kelas;
+		$siswa = DB::table('siswa')->where('kelas', $request->kelas)->get();
     }
+    
+    return view ('tambah-nilai', ['siswa' => $siswa, 'kelas' => $kelas, 'selectedKelas' => $selectedKelas]);
+}
+
     public function store(Request $request)
     {
         $pesan = [

@@ -34,26 +34,40 @@
 </div>
 @endif 
 
+@if($selectedKelas == null)
+	@php
+		$siswa = $siswa->where('kelas', reset($kelas));
+	@endphp
+@endif
 <form action="/absensi/store" method="POST">
     {{ csrf_field()}}
     <div class="form-group">
+        <label for="kelas">*Kelas</label> <br />
+        <select class="form-control" name="kelas" id="kelas" onchange="changeKelas()">
+            @foreach($kelas as $data)
+                <option @if($selectedKelas == $data)selected @endif>{{ $data }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
         <label for="name">*Nama Siswa</label> <br />
-     <select  class="form-control" id="sel1" name="name">
+        <select class="form-control" name="name">
             @foreach($siswa as $data)
                 <option value="{{ $data->id_users }}">{{ $data->name }}</option>
             @endforeach
         </select>
     </div> 
+
   
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="kelas">*Kelas</label>
         <input class="form-control" type="text" name="kelas" value="{{ old ('kelas') }}">
-    </div> 
+    </div> --}}
 
     <div class="form-group">
     <b> Tanggal Absensi</b><br/>
         <input type="date" name="tgl_absen" value="{{ old ('tgl_absen') }}">
-    </div> 
+    </div>  
 
     <div class="form-group">
         <label for="keterangan">*Keterangan</label>
@@ -81,12 +95,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
+    function changeKelas() {
+        var kelas = $('#kelas').val();
+        var url = '/absensi/tambah?kelas='+kelas;
+        location.replace(url);
+    }
     $(function () {
-      $("#example1").DataTable({
-        "columnDefs": [
-            { "width": "10%", "targets": -1 }
-        ]
-      });
+    //   $("#example1").DataTable({
+    //     "columnDefs": [
+    //         { "width": "10%", "targets": -1 }
+    //     ]
+    //   });
     });
 </script>
 @endpush

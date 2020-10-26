@@ -75,9 +75,10 @@ class JadwalController extends Controller
         $jadwal = Jadwal::create([
             'nama_kelas' => $request['nama_kelas'],
             'hari' => $request['hari'],
-            'max_siswa' => $request['max_siswa'],
+           
             'waktu_mulai' => $request['waktu_mulai'],
             'waktu_akhir' => $request['waktu_akhir'],
+            'max_siswa' => $request['max_siswa'],
         ]);
 
        
@@ -101,6 +102,8 @@ class JadwalController extends Controller
           
             'nama_kelas' => $request->nama_kelas,
             'hari' => $request->hari,
+            'waktu_mulai' => $request->waktu_mulai,
+            'waktu_akhir' => $request->waktu_akhir,
             'max_siswa' => $request->max_siswa,
           
         ]);
